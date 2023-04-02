@@ -1,20 +1,38 @@
 import 'package:blood_bank/core/utils/asset_manager.dart';
 import 'package:blood_bank/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
   @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  List<String> genders = [
+    "MALE",
+    "FEMALE",
+    "OTHER",
+  ];
+  List<String> bloodGroups = [
+    "O +",
+    "O -",
+    "A +",
+    "A -",
+    "B +",
+    "B -",
+    "AB +",
+    "AB -"
+  ];
+  @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create an account"),
+        title: const Text("Create an account"),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -25,14 +43,11 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
-              SvgPicture.asset(
-                AssetManager.donorLogin,
-                height: 120,
-                width: 120,
-              ),
+              SvgPicture.asset(AssetManager.donorLogin,
+                  height: 120, width: 120),
               const SizedBox(height: 16),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Text(
                     'Welcome to',
@@ -47,17 +62,17 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                   'Create an account to request blood, register your blood donation, and other features.'),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
                     context.pop();
                   },
-                  child: Text('I already have an account.',
+                  child: const Text('I already have an account.',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -65,24 +80,22 @@ class SignUpScreen extends StatelessWidget {
                       )),
                 ),
               ),
+               
               TextFormField(
-                onChanged: (v) {},
                 decoration: InputDecoration(
                   hintText: "Full name",
                   isDense: true,
-                  prefixIcon: Icon(Icons.person_outline),
+                  prefixIcon: const Icon(Icons.person_outline),
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey.shade100),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: AppColor.secondaryColor),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: AppColor.secondaryColor),
                   ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: AppColor.secondaryColor),
+                  errorBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: AppColor.secondaryColor),
                   ),
                 ),
               ),
@@ -92,7 +105,7 @@ class SignUpScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: "Phone number",
                   isDense: true,
-                  prefixIcon: Icon(Icons.phone_android_outlined),
+                  prefixIcon: const Icon(Icons.phone_android_outlined),
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   enabledBorder: OutlineInputBorder(
@@ -117,7 +130,7 @@ class SignUpScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: "Email",
                   isDense: true,
-                  prefixIcon: Icon(Icons.email_outlined),
+                  prefixIcon: const Icon(Icons.email_outlined),
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   enabledBorder: OutlineInputBorder(
@@ -138,11 +151,76 @@ class SignUpScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextFormField(
-                onChanged: (v) {},
+                readOnly: true,
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      content: SizedBox(
+                        width: size.width * .95,
+                        child: ListView.builder(
+                          itemCount: bloodGroups.length,
+                          shrinkWrap: true,
+                          itemBuilder: ((context, index) => ListTile(
+                                onTap: () {},
+                                title: Text(bloodGroups[index]),
+                              )),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                decoration: InputDecoration(
+                  hintText: "Blood group",
+                  isDense: true,
+                  prefixIcon: const Icon(Icons.bloodtype_outlined),
+                  suffixIcon: const Icon(Icons.arrow_drop_down),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+                  enabledBorder: OutlineInputBorder(
+                    // borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: Colors.grey.shade100),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    // borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: AppColor.secondaryColor),
+                  ),
+                  errorBorder: const OutlineInputBorder(
+                    // borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(
+                      color: AppColor.secondaryColor,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                readOnly: true,
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      content: SizedBox(
+                        width: size.width * .95,
+                        child: ListView.builder(
+                          itemCount: genders.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              onTap: () {},
+                              title: Text(genders[index]),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  );
+                },
                 decoration: InputDecoration(
                   hintText: "Gender",
                   isDense: true,
-                  prefixIcon: Icon(Icons.transgender_outlined),
+                  suffixIcon: const Icon(Icons.arrow_drop_down_outlined),
+                  prefixIcon: const Icon(Icons.transgender_outlined),
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   enabledBorder: OutlineInputBorder(
@@ -166,7 +244,7 @@ class SignUpScreen extends StatelessWidget {
                 onChanged: (v) {},
                 decoration: InputDecoration(
                   hintText: "Address",
-                  prefixIcon: Icon(Icons.location_on_outlined),
+                  prefixIcon: const Icon(Icons.location_on_outlined),
                   isDense: true,
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
@@ -195,7 +273,7 @@ class SignUpScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Register'),
+                  child: const Text('Register'),
                 ),
               ),
             ],
