@@ -23,12 +23,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<LoginBloc>(
           create: (context) => LoginBloc(
-              authRepository: AuthRepository(
-            authRemoteDataSource: AuthRemoteDataSource(
-              dio: Dio(),
+            authRepository: AuthRepository(
+              authRemoteDataSource: AuthRemoteDataSource(
+                dio: Dio(),
+              ),
+              appPreferences: AppPreferences(),
             ),
-            appPreferences: AppPreferences(),
-          )),
+          ),
         ),
       ],
       child: BlocBuilder<StartupBloc, StartupState>(

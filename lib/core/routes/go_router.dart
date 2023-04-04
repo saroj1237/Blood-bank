@@ -1,6 +1,6 @@
 import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
 import 'package:blood_bank/presentation/screens/full_screen_loading.dart';
-import 'package:blood_bank/presentation/screens/home_screen.dart';
+import 'package:blood_bank/presentation/screens/home/home_screen.dart';
 import 'package:blood_bank/presentation/screens/login/login_screen.dart';
 import 'package:blood_bank/presentation/screens/onboardings_screen.dart';
 import 'package:blood_bank/presentation/screens/signup_screen.dart';
@@ -17,67 +17,46 @@ class AppRoutes {
   static const String signupRoute = '/signup';
   static const String homeRoute = '/';
 
-  final _shellNavigatorKey = GlobalKey<NavigatorState>();
-  final _rootNavigatorKey = GlobalKey<NavigatorState>();
-
   GoRouter init() {
     return GoRouter(
       initialLocation: initialRoute(),
-      navigatorKey: _rootNavigatorKey,
+      // navigatorKey: _rootNavigatorKey,
       routes: [
         GoRoute(
-            parentNavigatorKey: _rootNavigatorKey,
+            // parentNavigatorKey: _rootNavigatorKey,
             path: fullScreenLoadingRoute,
             name: fullScreenLoadingRoute,
             builder: (context, state) {
               return const FullScreenLoading();
             }),
         GoRoute(
-            parentNavigatorKey: _rootNavigatorKey,
+            // parentNavigatorKey: _rootNavigatorKey,
             path: onBoardingRoute,
             name: onBoardingRoute,
             builder: (context, state) {
               return const OnBoardingScreen();
             }),
         GoRoute(
-            parentNavigatorKey: _rootNavigatorKey,
+            // parentNavigatorKey: _rootNavigatorKey,
             path: loginRoute,
             name: loginRoute,
             builder: (context, state) {
               return const LoginScreen();
             }),
         GoRoute(
-            parentNavigatorKey: _rootNavigatorKey,
+            // parentNavigatorKey: _rootNavigatorKey,
             path: signupRoute,
             name: signupRoute,
             builder: (context, state) {
               return const SignUpScreen();
             }),
-        ShellRoute(
-          navigatorKey: _shellNavigatorKey,
-          builder: (context, state, child) {
-            return HomeScreen(
-              location: state.location,
-              child: child,
-            );
-          },
-          routes: [
-            GoRoute(
-              parentNavigatorKey: _shellNavigatorKey,
-              path: '/',
-              builder: (context, state) {
-                return const Text('hello1');
-              },
-            ),
-            GoRoute(
-              parentNavigatorKey: _shellNavigatorKey,
-              path: '/discover',
-              builder: (context, state) {
-                return const Text("hello2");
-              },
-            ),
-          ],
-        ),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: homeRoute,
+            name: homeRoute,
+            builder: (context, state) {
+              return const HomeScreen();
+            }),
       ],
       errorBuilder: (context, state) {
         return Scaffold(

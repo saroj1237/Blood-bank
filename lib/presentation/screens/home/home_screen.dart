@@ -1,4 +1,6 @@
+import 'package:blood_bank/core/utils/color_manager.dart';
 import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
+import 'package:blood_bank/presentation/screens/home/home_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -6,9 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.child, required this.location});
-  final Widget child;
-  final String location;
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,66 +21,48 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const List<MyCustomBottomNavBarItem> tabs = [
     MyCustomBottomNavBarItem(
-      icon: Icon(Icons.home),
+      icon: Icon(Icons.home_outlined),
       activeIcon: Icon(Icons.home),
       label: 'HOME',
-      initialLocation: '/',
     ),
     MyCustomBottomNavBarItem(
-      icon: Icon(Icons.explore_outlined),
-      activeIcon: Icon(Icons.explore),
-      label: 'DISCOVER',
-      initialLocation: '/discover',
+      icon: Icon(Icons.account_circle_outlined),
+      activeIcon: Icon(Icons.account_circle),
+      label: 'PROFILE',
     ),
+  ];
+  List<Widget> items = [
+    const HomeTab(),
+    const Text("Profile"),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: Column(
-      //   children: [
-      //     widget.child,
-      //     ElevatedButton(
-      //         onPressed: () {
-      //           context.read<StartupBloc>().add(SetLogoutState());
-      //         },
-      //         child: Text("Logout")),
-      //   ],
-      // ),
-      body: SafeArea(child: widget.child),
+      body: items[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: const Color(0xFF434343),
+        selectedItemColor: AppColor.primaryColor,
         selectedFontSize: 12,
-        unselectedItemColor: const Color(0xFF838383),
+        unselectedItemColor: Color.fromARGB(255, 66, 86, 124),
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         onTap: (int index) {
           _goOtherTab(context, index);
         },
-        currentIndex: widget.location == '/' ? 0 : 1,
+        currentIndex: _currentIndex,
         items: tabs,
       ),
     );
   }
 
   void _goOtherTab(BuildContext context, int index) {
-    if (index == _currentIndex) return;
-    GoRouter router = GoRouter.of(context);
-    String location = tabs[index].initialLocation;
-
     setState(() {
       _currentIndex = index;
-      router.go(location);
     });
   }
 }
 
 class MyCustomBottomNavBarItem extends BottomNavigationBarItem {
-  final String initialLocation;
-
   const MyCustomBottomNavBarItem(
-      {required this.initialLocation,
-      required Widget icon,
-      String? label,
-      Widget? activeIcon})
+      {required Widget icon, String? label, Widget? activeIcon})
       : super(icon: icon, label: label, activeIcon: activeIcon ?? icon);
 }
