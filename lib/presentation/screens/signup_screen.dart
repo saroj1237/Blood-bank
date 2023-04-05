@@ -1,5 +1,7 @@
 import 'package:blood_bank/core/utils/asset_manager.dart';
 import 'package:blood_bank/core/utils/color_manager.dart';
+import 'package:blood_bank/core/utils/constants.dart';
+import 'package:blood_bank/core/utils/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -12,21 +14,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  List<String> genders = [
-    "MALE",
-    "FEMALE",
-    "OTHER",
-  ];
-  List<String> bloodGroups = [
-    "O +",
-    "O -",
-    "A +",
-    "A -",
-    "B +",
-    "B -",
-    "AB +",
-    "AB -"
-  ];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -80,7 +67,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       )),
                 ),
               ),
-               
               TextFormField(
                 decoration: InputDecoration(
                   hintText: "Full name",
@@ -152,23 +138,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 readOnly: true,
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      content: SizedBox(
-                        width: size.width * .95,
-                        child: ListView.builder(
-                          itemCount: bloodGroups.length,
-                          shrinkWrap: true,
-                          itemBuilder: ((context, index) => ListTile(
-                                onTap: () {},
-                                title: Text(bloodGroups[index]),
-                              )),
-                        ),
-                      ),
-                    ),
-                  );
+                onTap: () async {
+                  final selectedBloodGroup =
+                      await showBloodGroupDialog(context);
+                  if (selectedBloodGroup != null) {
+                    //TODO:assign blood group
+                  }
                 },
                 decoration: InputDecoration(
                   hintText: "Blood group",
@@ -196,25 +171,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 readOnly: true,
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      content: SizedBox(
-                        width: size.width * .95,
-                        child: ListView.builder(
-                          itemCount: genders.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              onTap: () {},
-                              title: Text(genders[index]),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  );
+                onTap: () async {
+                  final gender = await showGenderDialog(context);
+                  if (gender != null) {
+                    //TODO: gender
+                  }
                 },
                 decoration: InputDecoration(
                   hintText: "Gender",

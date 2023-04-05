@@ -4,4 +4,5 @@ import 'package:flutter/material.dart';
 ThemeData lightTheme = ThemeData(
   primarySwatch: buildMaterialColor(AppColor.primaryColor),
   scaffoldBackgroundColor: AppColor.white,
+  
 );

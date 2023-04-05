@@ -1,4 +1,7 @@
 import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
+import 'package:blood_bank/presentation/screens/blood/blood_donate_screen.dart';
+import 'package:blood_bank/presentation/screens/blood/blood_stock_screen.dart';
+import 'package:blood_bank/presentation/screens/blood/request_blood.dart';
 import 'package:blood_bank/presentation/screens/full_screen_loading.dart';
 import 'package:blood_bank/presentation/screens/home/home_screen.dart';
 import 'package:blood_bank/presentation/screens/login/login_screen.dart';
@@ -16,6 +19,9 @@ class AppRoutes {
   static const String loginRoute = '/login';
   static const String signupRoute = '/signup';
   static const String homeRoute = '/';
+  static const String bloodStockRoute = '/bloodStock';
+  static const String bloodDonateRoute = '/bloodDonate';
+  static const String bloodRequestRoute = '/bloodRequest';
 
   GoRouter init() {
     return GoRouter(
@@ -56,6 +62,27 @@ class AppRoutes {
             name: homeRoute,
             builder: (context, state) {
               return const HomeScreen();
+            }),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: bloodStockRoute,
+            name: bloodStockRoute,
+            builder: (context, state) {
+              return const BloodStockScreen();
+            }),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: bloodDonateRoute,
+            name: bloodDonateRoute,
+            builder: (context, state) {
+              return const BloodDonateScreen();
+            }),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: bloodRequestRoute,
+            name: bloodRequestRoute,
+            builder: (context, state) {
+              return const BloodRequestScreen();
             }),
       ],
       errorBuilder: (context, state) {

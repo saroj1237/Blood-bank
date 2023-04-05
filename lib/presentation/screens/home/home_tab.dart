@@ -264,8 +264,10 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: BloodService.bloodServices.length,
                 itemBuilder: (context, index) {
                   final bloodService = BloodService.bloodServices[index];
-                  return InkWell(
-                    onTap: () {},
+                  return GestureDetector(
+                    onTap: () {
+                      bloodService.onPressed!(context);
+                    },
                     child: Container(
                       margin: const EdgeInsets.only(right: 10),
                       padding: const EdgeInsets.only(bottom: 8),
@@ -281,13 +283,10 @@ class _HomeTabState extends State<HomeTab> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Hero(
-                              tag: 'book_camp',
-                              child: Image.asset(
-                                bloodService.imageUrl,
-                                height: 70,
-                                width: 70,
-                              ),
+                            Image.asset(
+                              bloodService.imageUrl,
+                              height: 70,
+                              width: 70,
                             ),
                             const SizedBox(
                               height: 10,
@@ -307,22 +306,22 @@ class _HomeTabState extends State<HomeTab> {
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           // Other Services------------------------------------------------
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(
-                'Other Services',
-              ),
-            ),
-          ),
+          // const SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: EdgeInsets.symmetric(horizontal: 16.0),
+          //     child: Text(
+          //       'Other Services',
+          //     ),
+          //   ),
+          // ),
 
-          SliverToBoxAdapter(
-            child: Wrap(
-              children: BloodService.bloodServices
-                  .map((e) => Image.asset(e.imageUrl))
-                  .toList(),
-            ),
-          )
+          // SliverToBoxAdapter(
+          //   child: Wrap(
+          //     children: BloodService.bloodServices
+          //         .map((e) => Image.asset(e.imageUrl))
+          //         .toList(),
+          //   ),
+          // )
         ],
       ),
     );
