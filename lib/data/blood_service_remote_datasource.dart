@@ -19,23 +19,24 @@ class BloodServiceRemoteDataSource {
     }
   }
 
-  Future<bool> requestBlood(RequestBloodReq request , File file) async {
+  Future<bool> requestBlood(RequestBloodReq request, File file) async {
     try {
       var data = request.toJson();
       data['img'] = {
-        // "image": await MultipartFile.fromFile(File('hel').path),
-        "image": "image",
+        "image": await MultipartFile.fromFile(file.path),
         "type": "image/jpg"
       };
       var formData = FormData.fromMap(data);
       print(data);
-      final response = await _dio.post(
-        "https://halfdigitsdev.com/Mobile/RequestBlood",
-        data: formData,
-      );
+      final response =
+          await _dio.post("https://halfdigitsdev.com/Mobile/RequestBlood",
+              data: formData,
+              options: Options(
+                contentType: 'multipart/form-data',
+              ));
       print(response);
-      final json = response.data['data'][0] as Map<String, dynamic>;
-      return false;
+
+      return true;
     } catch (e) {
       rethrow;
     }

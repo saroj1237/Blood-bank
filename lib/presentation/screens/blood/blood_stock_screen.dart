@@ -14,29 +14,29 @@ class _BloodStockScreenState extends State<BloodStockScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.read<BloodServicesBloc>().add(GetBloodStock());
+    context.read<BloodServicesBloc>().add(const GetBloodStock());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Blood Group"),
+        elevation: 0,
+        title: const Text("Blood Stock"),
       ),
       body: BlocBuilder<BloodServicesBloc, BloodServicesState>(
         builder: (context, state) {
           return state.status == BloodServiceStatus.loading ||
                   state.status == BloodServiceStatus.initial
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : ListView.builder(
                   itemCount: state.bloodStock.length,
                   itemBuilder: (context, index) {
-                    final key =
-                        (state.bloodStock.keys.toList())[index] as String;
+                    final key = (state.bloodStock.keys.toList())[index];
 
-                    return Text("key =<$key");
+                    return Text("$key");
                   },
                 );
         },

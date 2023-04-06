@@ -29,6 +29,12 @@ class BloodServicesBloc extends Bloc<BloodServicesEvent, BloodServicesState> {
   void _onRequestBlood(
       RequestBlood event, Emitter<BloodServicesState> emit) async {
     emit(state.copyWith(status: BloodServiceStatus.loading));
-    final result = await bloodServicesRepository.requestBlood(event.request, event.file);
+    try {
+      final result =
+          await bloodServicesRepository.requestBlood(event.request, event.file);
+      emit(state.copyWith(status: BloodServiceStatus.loaded));
+    } catch (e) {
+      emit(state.copyWith(status: BloodServiceStatus.error));
+    }
   }
 }

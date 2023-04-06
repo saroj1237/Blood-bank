@@ -1,11 +1,6 @@
-import 'package:blood_bank/core/utils/color_manager.dart';
-import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
+import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/presentation/screens/home/home_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({

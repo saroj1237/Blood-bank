@@ -1,15 +1,6 @@
 import 'package:blood_bank/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-showLoadingSnackBar(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      behavior: SnackBarBehavior.floating,
-      content: Text("Loading.."),
-    ),
-  );
-}
-
 Future<String?> showBloodGroupDialog(BuildContext context) async {
   final size = MediaQuery.of(context).size;
   return await showDialog<String>(

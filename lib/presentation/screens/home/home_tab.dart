@@ -1,4 +1,4 @@
-import 'package:blood_bank/core/utils/color_manager.dart';
+import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/domain/models/home/blood_service.dart';
 import 'package:blood_bank/presentation/widgets/custom_cached_network_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';

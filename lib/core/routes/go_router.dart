@@ -17,7 +17,7 @@ class AppRoutes {
   static const String fullScreenLoadingRoute = '/fullScreenLoadingRoute';
   static const String onBoardingRoute = '/onboarding';
   static const String loginRoute = '/login';
-  static const String signupRoute = '/signup';
+  static const String signUpRoute = '/signUp';
   static const String homeRoute = '/';
   static const String bloodStockRoute = '/bloodStock';
   static const String bloodDonateRoute = '/bloodDonate';
@@ -50,12 +50,13 @@ class AppRoutes {
               return const LoginScreen();
             }),
         GoRoute(
-            // parentNavigatorKey: _rootNavigatorKey,
-            path: signupRoute,
-            name: signupRoute,
-            builder: (context, state) {
-              return const SignUpScreen();
-            }),
+          // parentNavigatorKey: _rootNavigatorKey,
+          path: signUpRoute,
+          name: signUpRoute,
+          builder: (context, state) {
+            return const SignUpScreen();
+          },
+        ),
         GoRoute(
             // parentNavigatorKey: _rootNavigatorKey,
             path: homeRoute,

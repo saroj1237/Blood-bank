@@ -1,9 +1,6 @@
+import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/core/services/form_validator.dart';
-import 'package:blood_bank/core/utils/asset_manager.dart';
-import 'package:blood_bank/core/utils/color_manager.dart';
-import 'package:blood_bank/core/utils/dialogs.dart';
 import 'package:blood_bank/presentation/bloc/login_bloc/login_bloc.dart';
-import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

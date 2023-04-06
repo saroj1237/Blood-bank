@@ -1,7 +1,7 @@
+import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/core/routes/go_router.dart';
 import 'package:blood_bank/core/services/form_validator.dart';
-import 'package:blood_bank/core/utils/color_manager.dart';
-import 'package:blood_bank/core/utils/dialogs.dart';
+import 'package:blood_bank/core/utils/dialogs/snackbars.dart';
 import 'package:blood_bank/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
 import 'package:flutter/material.dart';
@@ -168,7 +168,7 @@ class _DonorLoginViewState extends State<DonorLoginView> {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  context.push(AppRoutes.signupRoute);
+                  context.push(AppRoutes.signUpRoute);
                 },
                 child: const Text('Create account?',
                     style: TextStyle(

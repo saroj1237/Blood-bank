@@ -1,5 +1,5 @@
-import 'package:blood_bank/core/utils/asset_manager.dart';
-import 'package:blood_bank/core/utils/color_manager.dart';
+
+import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/presentation/screens/login/donor_login_view.dart';
 import 'package:blood_bank/presentation/screens/login/organization_login_view.dart';
 import 'package:flutter/material.dart';

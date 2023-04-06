@@ -179,7 +179,7 @@ mixin _$RequestBloodReq {
   @JsonKey(name: "isgovernmenthospital")
   bool get isGovernmentHospital => throw _privateConstructorUsedError;
   String get contact => throw _privateConstructorUsedError;
-  String get remark => throw _privateConstructorUsedError;
+  String get remarks => throw _privateConstructorUsedError;
   int get wbreqcount => throw _privateConstructorUsedError;
   int get prbcreqcount => throw _privateConstructorUsedError;
   int get pcreqcount => throw _privateConstructorUsedError;
@@ -214,7 +214,7 @@ abstract class $RequestBloodReqCopyWith<$Res> {
       @JsonKey(name: "hospitalname") String hospitalName,
       @JsonKey(name: "isgovernmenthospital") bool isGovernmentHospital,
       String contact,
-      String remark,
+      String remarks,
       int wbreqcount,
       int prbcreqcount,
       int pcreqcount,
@@ -250,7 +250,7 @@ class _$RequestBloodReqCopyWithImpl<$Res, $Val extends RequestBloodReq>
     Object? hospitalName = null,
     Object? isGovernmentHospital = null,
     Object? contact = null,
-    Object? remark = null,
+    Object? remarks = null,
     Object? wbreqcount = null,
     Object? prbcreqcount = null,
     Object? pcreqcount = null,
@@ -297,9 +297,9 @@ class _$RequestBloodReqCopyWithImpl<$Res, $Val extends RequestBloodReq>
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
               as String,
-      remark: null == remark
-          ? _value.remark
-          : remark // ignore: cast_nullable_to_non_nullable
+      remarks: null == remarks
+          ? _value.remarks
+          : remarks // ignore: cast_nullable_to_non_nullable
               as String,
       wbreqcount: null == wbreqcount
           ? _value.wbreqcount
@@ -370,7 +370,7 @@ abstract class _$$_RequestBloodCopyWith<$Res>
       @JsonKey(name: "hospitalname") String hospitalName,
       @JsonKey(name: "isgovernmenthospital") bool isGovernmentHospital,
       String contact,
-      String remark,
+      String remarks,
       int wbreqcount,
       int prbcreqcount,
       int pcreqcount,
@@ -404,7 +404,7 @@ class __$$_RequestBloodCopyWithImpl<$Res>
     Object? hospitalName = null,
     Object? isGovernmentHospital = null,
     Object? contact = null,
-    Object? remark = null,
+    Object? remarks = null,
     Object? wbreqcount = null,
     Object? prbcreqcount = null,
     Object? pcreqcount = null,
@@ -451,9 +451,9 @@ class __$$_RequestBloodCopyWithImpl<$Res>
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
               as String,
-      remark: null == remark
-          ? _value.remark
-          : remark // ignore: cast_nullable_to_non_nullable
+      remarks: null == remarks
+          ? _value.remarks
+          : remarks // ignore: cast_nullable_to_non_nullable
               as String,
       wbreqcount: null == wbreqcount
           ? _value.wbreqcount
@@ -519,7 +519,7 @@ class _$_RequestBlood implements _RequestBlood {
       @JsonKey(name: "hospitalname") required this.hospitalName,
       @JsonKey(name: "isgovernmenthospital") this.isGovernmentHospital = true,
       required this.contact,
-      required this.remark,
+      required this.remarks,
       this.wbreqcount = 1,
       this.prbcreqcount = 0,
       this.pcreqcount = 0,
@@ -559,7 +559,7 @@ class _$_RequestBlood implements _RequestBlood {
   @override
   final String contact;
   @override
-  final String remark;
+  final String remarks;
   @override
   @JsonKey()
   final int wbreqcount;
@@ -599,7 +599,7 @@ class _$_RequestBlood implements _RequestBlood {
 
   @override
   String toString() {
-    return 'RequestBloodReq(bloodGroup: $bloodGroup, patientTitle: $patientTitle, patientName: $patientName, patientAge: $patientAge, patientGender: $patientGender, hospitalName: $hospitalName, isGovernmentHospital: $isGovernmentHospital, contact: $contact, remark: $remark, wbreqcount: $wbreqcount, prbcreqcount: $prbcreqcount, pcreqcount: $pcreqcount, prpreqcount: $prpreqcount, ffpreqcount: $ffpreqcount, ccpreqcount: $ccpreqcount, cryoreqcount: $cryoreqcount, requestedplasma: $requestedplasma, requestedplatelets: $requestedplatelets, requestedgcytes: $requestedgcytes, requestedpbsc: $requestedpbsc, requestedccp: $requestedccp)';
+    return 'RequestBloodReq(bloodGroup: $bloodGroup, patientTitle: $patientTitle, patientName: $patientName, patientAge: $patientAge, patientGender: $patientGender, hospitalName: $hospitalName, isGovernmentHospital: $isGovernmentHospital, contact: $contact, remarks: $remarks, wbreqcount: $wbreqcount, prbcreqcount: $prbcreqcount, pcreqcount: $pcreqcount, prpreqcount: $prpreqcount, ffpreqcount: $ffpreqcount, ccpreqcount: $ccpreqcount, cryoreqcount: $cryoreqcount, requestedplasma: $requestedplasma, requestedplatelets: $requestedplatelets, requestedgcytes: $requestedgcytes, requestedpbsc: $requestedpbsc, requestedccp: $requestedccp)';
   }
 
   @override
@@ -622,7 +622,7 @@ class _$_RequestBlood implements _RequestBlood {
             (identical(other.isGovernmentHospital, isGovernmentHospital) ||
                 other.isGovernmentHospital == isGovernmentHospital) &&
             (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.remark, remark) || other.remark == remark) &&
+            (identical(other.remarks, remarks) || other.remarks == remarks) &&
             (identical(other.wbreqcount, wbreqcount) ||
                 other.wbreqcount == wbreqcount) &&
             (identical(other.prbcreqcount, prbcreqcount) ||
@@ -661,7 +661,7 @@ class _$_RequestBlood implements _RequestBlood {
         hospitalName,
         isGovernmentHospital,
         contact,
-        remark,
+        remarks,
         wbreqcount,
         prbcreqcount,
         pcreqcount,
@@ -700,7 +700,7 @@ abstract class _RequestBlood implements RequestBloodReq {
       @JsonKey(name: "hospitalname") required final String hospitalName,
       @JsonKey(name: "isgovernmenthospital") final bool isGovernmentHospital,
       required final String contact,
-      required final String remark,
+      required final String remarks,
       final int wbreqcount,
       final int prbcreqcount,
       final int pcreqcount,
@@ -740,7 +740,7 @@ abstract class _RequestBlood implements RequestBloodReq {
   @override
   String get contact;
   @override
-  String get remark;
+  String get remarks;
   @override
   int get wbreqcount;
   @override

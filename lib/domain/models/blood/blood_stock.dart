@@ -26,7 +26,7 @@ class RequestBloodReq with _$RequestBloodReq {
     @Default(true)
         bool isGovernmentHospital,
     required String contact,
-    required String remark,
+    required String remarks,
     @Default(1) int wbreqcount,
     @Default(0) int prbcreqcount,
     @Default(0) int pcreqcount,
@@ -43,7 +43,3 @@ class RequestBloodReq with _$RequestBloodReq {
   factory RequestBloodReq.fromJson(Map<String, dynamic> json) =>
       _$RequestBloodReqFromJson(json);
 }
-
-// "requestedgcytes": false,
-// "requestedpbsc": false,
-// "requestedccp": false,
