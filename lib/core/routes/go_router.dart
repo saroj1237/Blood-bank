@@ -28,6 +28,15 @@ class AppRoutes {
       initialLocation: initialRoute(),
       // navigatorKey: _rootNavigatorKey,
       routes: [
+        // ShellRoute(
+
+        //   pageBuilder: (context, state, child) {
+        //     return MaterialPage(
+        //         child: Scaffold(
+        //       appBar: AppBar(),
+        //     ));
+        //   },
+        // ),
         GoRoute(
             // parentNavigatorKey: _rootNavigatorKey,
             path: fullScreenLoadingRoute,

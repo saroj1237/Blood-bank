@@ -1,4 +1,4 @@
-import 'package:blood_bank/core/utils/constants.dart';
+import 'package:blood_bank/core/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 Future<String?> showBloodGroupDialog(BuildContext context) async {

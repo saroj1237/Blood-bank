@@ -21,12 +21,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       'image': 'assets/images/onboarding1.svg'
     },
     {
-      'title': 'Donate blood',
+      'title': 'Donate Blood',
       'description': 'Keep record of your blood donation.',
       'image': 'assets/images/onboarding1.svg',
     },
     {
-      'title': 'Blood storage',
+      'title': 'Blood Storage',
       'description': 'Get information about the blood available.',
       'image': 'assets/images/onboarding1.svg',
     },
@@ -93,8 +93,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
       bottomSheet: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-        height: 60,
+        height: buttonHeight,
         width: size.width,
+        color: AppColor.white,
         child: index == onboardingData.length - 1
             ? ElevatedButton(
                 onPressed: () {

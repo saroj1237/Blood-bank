@@ -45,6 +45,7 @@ dependencies:
   cached_network_image: ^3.2.3
   image_picker: ^0.8.6
   carousel_slider: ^4.2.1
+  syncfusion_flutter_datagrid: ^21.1.38
   
 dev_dependencies:
   flutter_test:
