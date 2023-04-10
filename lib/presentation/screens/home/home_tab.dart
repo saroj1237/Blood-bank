@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -306,22 +307,22 @@ class _HomeTabState extends State<HomeTab> {
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           // Other Services------------------------------------------------
-          // const SliverToBoxAdapter(
-          //   child: Padding(
-          //     padding: EdgeInsets.symmetric(horizontal: 16.0),
-          //     child: Text(
-          //       'Other Services',
-          //     ),
-          //   ),
-          // ),
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                'Other Services',
+              ),
+            ),
+          ),
 
-          // SliverToBoxAdapter(
-          //   child: Wrap(
-          //     children: BloodService.bloodServices
-          //         .map((e) => Image.asset(e.imageUrl))
-          //         .toList(),
-          //   ),
-          // )
+          SliverToBoxAdapter(
+            child: Wrap(
+              children: BloodService.bloodServices
+                  .map((e) => Image.asset(e.imageUrl))
+                  .toList(),
+            ),
+          )
         ],
       ),
     );

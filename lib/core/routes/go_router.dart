@@ -1,6 +1,7 @@
 import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
 import 'package:blood_bank/presentation/screens/blood/blood_donate_screen.dart';
 import 'package:blood_bank/presentation/screens/blood/blood_stock_screen.dart';
+import 'package:blood_bank/presentation/screens/blood/book_camp_screen.dart';
 import 'package:blood_bank/presentation/screens/blood/request_blood.dart';
 import 'package:blood_bank/presentation/screens/full_screen_loading.dart';
 import 'package:blood_bank/presentation/screens/home/home_screen.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String bloodStockRoute = '/bloodStock';
   static const String bloodDonateRoute = '/bloodDonate';
   static const String bloodRequestRoute = '/bloodRequest';
+  static const String bookCampRoute = '/boolCamp';
 
   GoRouter init() {
     return GoRouter(
@@ -93,6 +95,13 @@ class AppRoutes {
             name: bloodRequestRoute,
             builder: (context, state) {
               return const BloodRequestScreen();
+            }),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: bookCampRoute,
+            name: bookCampRoute,
+            builder: (context, state) {
+              return const BookCampScreen();
             }),
       ],
       errorBuilder: (context, state) {

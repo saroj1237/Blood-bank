@@ -1,5 +1,5 @@
 import 'package:blood_bank/core/resources/color_manager.dart';
-import 'package:blood_bank/presentation/bloc/bloc/blood_services_bloc.dart';
+import 'package:blood_bank/presentation/bloc/blood_services_bloc/blood_services_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
@@ -12,13 +12,12 @@ class BloodStockScreen extends StatefulWidget {
 }
 
 class _BloodStockScreenState extends State<BloodStockScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
     super.initState();
     context.read<BloodServicesBloc>().add(const GetBloodStock());
-    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -36,105 +35,97 @@ class _BloodStockScreenState extends State<BloodStockScreen>
       ),
       body: BlocBuilder<BloodServicesBloc, BloodServicesState>(
         builder: (context, state) {
-          return state.status == BloodServiceStatus.loading ||
-                  state.status == BloodServiceStatus.initial
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Column(
-                  children: [
-                    DefaultTabController(
-                        length: state.bloodStock.keys.length,
-                        child: TabBar(
-                          isScrollable: true,
-                          padding: EdgeInsets.zero,
-                          unselectedLabelColor: AppColor.secondaryColor,
-                          dividerColor: AppColor.blue,
-                          labelColor: AppColor.grey,
-                          tabs: state.bloodStock.keys
-                              .map((e) => Tab(
-                                    text: e,
-                                    iconMargin: EdgeInsets.zero,
-                                  ))
-                              .toList(),
-                        )),
-                    Divider(),
-                    Expanded(
-                      child: TabBarView(
-                        children: state.bloodStock.keys
-                            .map((e) => Text(e.toString()))
-                            .toList(),
-                      ),
-                    ),
-                  ],
-                );
-          //  ListView.builder(
-          //     itemCount: state.bloodStock.length,
-          //     itemBuilder: (context, index) {
-          //       final key = (state.bloodStock.keys.toList())[index];
-
-          //       return SfDataGrid(
-          //         source: employeeDataSource,
-          //         columnWidthMode: ColumnWidthMode.fill,
-          //         columns: <GridColumn>[
-          //           GridColumn(
-          //               columnName: 'id',
-          //               label: Container(
-          //                   padding: const EdgeInsets.all(16.0),
-          //                   alignment: Alignment.center,
-          //                   child: const Text(
-          //                     'ID',
-          //                   ))),
-          //           GridColumn(
-          //               columnName: 'name',
-          //               label: Container(
-          //                   padding: const EdgeInsets.all(8.0),
-          //                   alignment: Alignment.center,
-          //                   child: const Text('Name'))),
-          //           GridColumn(
-          //               columnName: 'designation',
-          //               label: Container(
-          //                   padding: const EdgeInsets.all(8.0),
-          //                   alignment: Alignment.center,
-          //                   child: const Text(
-          //                     'Designation',
-          //                     overflow: TextOverflow.ellipsis,
-          //                   ))),
-          //           GridColumn(
-          //               columnName: 'salary',
-          //               label: Container(
-          //                   padding: const EdgeInsets.all(8.0),
-          //                   alignment: Alignment.center,
-          //                   child: const Text('Salary'))),
-          //         ],
-          //       );
-          //     },
-          //   );
+          if (state.status == BloodServiceStatus.loading ||
+              state.status == BloodServiceStatus.initial) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state.status == BloodServiceStatus.loaded) {
+            _tabController =
+                TabController(length: state.bloodStock.length, vsync: this);
+            return Column(
+              children: [
+                TabBar(
+                  controller: _tabController,
+                  isScrollable: true,
+                  padding: EdgeInsets.zero,
+                  unselectedLabelColor: AppColor.secondaryColor,
+                  dividerColor: AppColor.blue,
+                  labelColor: AppColor.grey,
+                  tabs: state.bloodStock.keys
+                      .map((e) => Tab(
+                            text: e,
+                            iconMargin: EdgeInsets.zero,
+                          ))
+                      .toList(),
+                ),
+                // const Divider(),
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: state.bloodStock.keys.map((e) {
+                      final bloodList = state.bloodStock[e] as List<dynamic>;
+                      return SfDataGrid(
+                          source: BloodDataSource(bloodData: bloodList),
+                          columnWidthMode: ColumnWidthMode.fill,
+                          columns: [
+                            GridColumn(
+                                columnName: 'blood type',
+                                label: Container(
+                                    padding: const EdgeInsets.all(16.0),
+                                    alignment: Alignment.center,
+                                    child: const Text(
+                                      'Blood Type',
+                                    ))),
+                            GridColumn(
+                                columnName: 'component Count',
+                                label: Container(
+                                    padding: const EdgeInsets.all(8.0),
+                                    alignment: Alignment.center,
+                                    child: const Text('Component Count'))),
+                            GridColumn(
+                                columnName: 'reserve count',
+                                label: Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  alignment: Alignment.center,
+                                  child: const Text(
+                                    'Reserve Count',
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                )),
+                          ]);
+                    }).toList(),
+                  ),
+                ),
+              ],
+            );
+          }
+          return SizedBox.shrink();
         },
       ),
     );
   }
 }
 
-class EmployeeDataSource extends DataGridSource {
+class BloodDataSource extends DataGridSource {
   /// Creates the employee data source class with required details.
-  EmployeeDataSource({required List<Map<String, dynamic>> employeeData}) {
-    _employeeData = employeeData
+  BloodDataSource({required List<dynamic> bloodData}) {
+    _bloodData = bloodData
         .map<DataGridRow>((e) => DataGridRow(cells: [
-              DataGridCell<int>(
+              DataGridCell<String>(
                   columnName: 'blood type', value: e['bloodtype']),
-              DataGridCell<String>(
+              DataGridCell<int>(
                   columnName: 'component count', value: e['componentcount']),
-              DataGridCell<String>(
+              DataGridCell<int>(
                   columnName: 'reserve count', value: e['reservecount']),
             ]))
         .toList();
   }
 
-  List<DataGridRow> _employeeData = [];
+  List<DataGridRow> _bloodData = [];
 
   @override
-  List<DataGridRow> get rows => _employeeData;
+  List<DataGridRow> get rows => _bloodData;
 
   @override
   DataGridRowAdapter buildRow(DataGridRow row) {

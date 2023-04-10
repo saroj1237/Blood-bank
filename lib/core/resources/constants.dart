@@ -15,5 +15,5 @@ List<String> genders = [
   "OTHER",
 ];
 
-double buttonHeight = 55.0;
+double buttonHeight = 50.0;
 double screenPadding = 16.0;

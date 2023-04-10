@@ -15,6 +15,7 @@ class BloodServicesBloc extends Bloc<BloodServicesEvent, BloodServicesState> {
       : super(const BloodServicesState(status: BloodServiceStatus.initial)) {
     on<GetBloodStock>(_onGetBloodStock);
     on<RequestBlood>(_onRequestBlood);
+    on<DonateBlood>(_onDonateBlood);
   }
   void _onGetBloodStock(
       GetBloodStock event, Emitter<BloodServicesState> emit) async {
@@ -30,8 +31,23 @@ class BloodServicesBloc extends Bloc<BloodServicesEvent, BloodServicesState> {
       RequestBlood event, Emitter<BloodServicesState> emit) async {
     emit(state.copyWith(status: BloodServiceStatus.loading));
     try {
-      final result =
-          await bloodServicesRepository.requestBlood(event.request, event.file);
+      await bloodServicesRepository.requestBlood(event.request, event.file);
+      emit(state.copyWith(status: BloodServiceStatus.loaded));
+    } catch (e) {
+      emit(state.copyWith(status: BloodServiceStatus.error));
+    }
+  }
+
+  void _onDonateBlood(
+      DonateBlood event, Emitter<BloodServicesState> emit) async {
+    emit(state.copyWith(status: BloodServiceStatus.loading));
+    try {
+      await bloodServicesRepository.donateBlood(
+        event.name,
+        event.phoneNumber,
+        event.dob,
+        event.hospitalName,
+      );
       emit(state.copyWith(status: BloodServiceStatus.loaded));
     } catch (e) {
       emit(state.copyWith(status: BloodServiceStatus.error));

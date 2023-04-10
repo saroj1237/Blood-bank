@@ -2,33 +2,46 @@ import 'package:blood_bank/core/extensions/context_extensions.dart';
 import 'package:blood_bank/core/helpers/pick_date_np.dart';
 import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/core/services/form_validator.dart';
+import 'package:blood_bank/domain/models/blood/camp.dart';
+import 'package:blood_bank/presentation/bloc/blood_camp_bloc/blood_camp_bloc.dart';
+import 'package:blood_bank/presentation/bloc/blood_services_bloc/blood_services_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nepali_date_picker/nepali_date_picker.dart';
 
 import 'package:nepali_date_picker/nepali_date_picker.dart' as picker;
-import 'package:nepali_utils/nepali_utils.dart';
 
-import 'package:blood_bank/presentation/bloc/blood_services_bloc/blood_services_bloc.dart';
-
-class BloodDonateScreen extends StatefulWidget {
-  const BloodDonateScreen({super.key});
+class BookCampScreen extends StatefulWidget {
+  const BookCampScreen({super.key});
 
   @override
-  State<BloodDonateScreen> createState() => _BloodDonateScreenState();
+  State<BookCampScreen> createState() => _BookCampScreenState();
 }
 
-class _BloodDonateScreenState extends State<BloodDonateScreen> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _dobController = TextEditingController();
-  final TextEditingController _hospitalController = TextEditingController();
+class _BookCampScreenState extends State<BookCampScreen> {
+  final TextEditingController _nameController =
+      TextEditingController(text: "test data");
+  final TextEditingController _orgNameController =
+      TextEditingController(text: "test data");
+  final TextEditingController _venueController =
+      TextEditingController(text: "test data");
+  final TextEditingController _donorCountController =
+      TextEditingController(text: "test data");
+  final TextEditingController _phoneController =
+      TextEditingController(text: "test data");
+  final TextEditingController _emailController =
+      TextEditingController(text: "test@gmail.com");
+  final TextEditingController _dateController =
+      TextEditingController(text: "test data");
+  final TextEditingController _messageController =
+      TextEditingController(text: "test data");
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text("Donate Blood"),
+        title: const Text("Book Camp"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -62,34 +75,58 @@ class _BloodDonateScreenState extends State<BloodDonateScreen> {
                 ),
                 const SizedBox(height: 16),
                 _buildTextField(
-                  controller: _phoneController,
-                  labelText: "Phone number",
-                  hintText: "Enter a valid phone number",
+                  controller: _orgNameController,
+                  labelText: "Organizer",
+                  hintText: "Enter organizer name",
                 ),
                 const SizedBox(height: 16),
                 _buildTextField(
-                  controller: _dobController,
-                  labelText: "Date of birth",
+                  controller: _venueController,
+                  labelText: "Venue",
+                  hintText: "Enter venue",
+                ),
+                const SizedBox(height: 16),
+                _buildTextField(
+                  controller: _donorCountController,
+                  labelText: "Estimated no. of Donors",
+                  hintText: "Enter the estimated no. of donors",
+                ),
+                const SizedBox(height: 16),
+                _buildTextField(
+                  controller: _phoneController,
+                  labelText: "Contact number",
+                  hintText: "Enter a valid contact number",
+                ),
+                const SizedBox(height: 16),
+                _buildTextField(
+                  controller: _emailController,
+                  labelText: "Email",
+                  hintText: "Enter a valid email",
+                ),
+                const SizedBox(height: 16),
+                _buildTextField(
+                  controller: _dateController,
+                  labelText: "Date",
                   readOnly: true,
                   suffixIcon: Icons.arrow_drop_down,
                   onTap: () async {
                     final pickedDate = await pickNepaliDate(context);
                     if (pickedDate != null) {
-                      _dobController.text = pickedDate;
+                      _dateController.text = pickedDate;
                     }
                   },
-                  hintText: "Enter your data of birth",
+                  hintText: "Enter date of event",
                 ),
                 const SizedBox(height: 16),
                 _buildTextField(
-                  controller: _hospitalController,
-                  labelText: "Hospital",
-                  hintText: "Enter the hospital name you want to donate blood",
+                  controller: _messageController,
+                  labelText: "Message",
+                  hintText: "Enter message",
                 ),
                 const SizedBox(height: 16),
-                BlocBuilder<BloodServicesBloc, BloodServicesState>(
+                BlocBuilder<BloodCampBloc, BloodCampState>(
                   builder: (context, state) {
-                    if (state.status == BloodServiceStatus.loading) {
+                    if (state.status == BloodCampStatus.loading) {
                       return const CircularProgressIndicator();
                     }
                     return SizedBox(
@@ -102,12 +139,18 @@ class _BloodDonateScreenState extends State<BloodDonateScreen> {
                         onPressed: () {
                           context.hideKeyboard();
                           if (!_formKey.currentState!.validate()) return;
-                          context.read<BloodServicesBloc>().add(
-                                DonateBlood(
-                                  name: _nameController.text,
-                                  phoneNumber: _phoneController.text,
-                                  dob: _dobController.text,
-                                  hospitalName: _hospitalController.text,
+                          context.read<BloodCampBloc>().add(
+                                BookCamp(
+                                  request: BookCampRequest(
+                                    name: _nameController.text,
+                                    organizer_name: _orgNameController.text,
+                                    email: _emailController.text,
+                                    phone_number: _phoneController.text,
+                                    donors_no: _donorCountController.text,
+                                    venue: _venueController.text,
+                                    message: _messageController.text,
+                                    date_time: _dateController.text,
+                                  ),
                                 ),
                               );
                         },

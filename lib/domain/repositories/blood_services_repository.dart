@@ -23,4 +23,13 @@ class BloodServicesRepository {
       rethrow;
     }
   }
+
+  Future<bool> donateBlood(
+      String name, String phone, String dob, String hospitalName) async {
+    try {
+      return await remoteDataSource.donateBlood(name, phone, dob, hospitalName);
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

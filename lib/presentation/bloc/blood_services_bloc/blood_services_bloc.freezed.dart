@@ -21,6 +21,9 @@ mixin _$BloodServicesEvent {
     required TResult Function() started,
     required TResult Function() getBloodStock,
     required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)
+        donateBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +31,9 @@ mixin _$BloodServicesEvent {
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
     TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +41,9 @@ mixin _$BloodServicesEvent {
     TResult Function()? started,
     TResult Function()? getBloodStock,
     TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +52,7 @@ mixin _$BloodServicesEvent {
     required TResult Function(Started value) started,
     required TResult Function(GetBloodStock value) getBloodStock,
     required TResult Function(RequestBlood value) requestBlood,
+    required TResult Function(DonateBlood value) donateBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +60,7 @@ mixin _$BloodServicesEvent {
     TResult? Function(Started value)? started,
     TResult? Function(GetBloodStock value)? getBloodStock,
     TResult? Function(RequestBlood value)? requestBlood,
+    TResult? Function(DonateBlood value)? donateBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +68,7 @@ mixin _$BloodServicesEvent {
     TResult Function(Started value)? started,
     TResult Function(GetBloodStock value)? getBloodStock,
     TResult Function(RequestBlood value)? requestBlood,
+    TResult Function(DonateBlood value)? donateBlood,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +131,9 @@ class _$Started implements Started {
     required TResult Function() started,
     required TResult Function() getBloodStock,
     required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)
+        donateBlood,
   }) {
     return started();
   }
@@ -129,6 +144,9 @@ class _$Started implements Started {
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
     TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
   }) {
     return started?.call();
   }
@@ -139,6 +157,9 @@ class _$Started implements Started {
     TResult Function()? started,
     TResult Function()? getBloodStock,
     TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -153,6 +174,7 @@ class _$Started implements Started {
     required TResult Function(Started value) started,
     required TResult Function(GetBloodStock value) getBloodStock,
     required TResult Function(RequestBlood value) requestBlood,
+    required TResult Function(DonateBlood value) donateBlood,
   }) {
     return started(this);
   }
@@ -163,6 +185,7 @@ class _$Started implements Started {
     TResult? Function(Started value)? started,
     TResult? Function(GetBloodStock value)? getBloodStock,
     TResult? Function(RequestBlood value)? requestBlood,
+    TResult? Function(DonateBlood value)? donateBlood,
   }) {
     return started?.call(this);
   }
@@ -173,6 +196,7 @@ class _$Started implements Started {
     TResult Function(Started value)? started,
     TResult Function(GetBloodStock value)? getBloodStock,
     TResult Function(RequestBlood value)? requestBlood,
+    TResult Function(DonateBlood value)? donateBlood,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -227,6 +251,9 @@ class _$GetBloodStock implements GetBloodStock {
     required TResult Function() started,
     required TResult Function() getBloodStock,
     required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)
+        donateBlood,
   }) {
     return getBloodStock();
   }
@@ -237,6 +264,9 @@ class _$GetBloodStock implements GetBloodStock {
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
     TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
   }) {
     return getBloodStock?.call();
   }
@@ -247,6 +277,9 @@ class _$GetBloodStock implements GetBloodStock {
     TResult Function()? started,
     TResult Function()? getBloodStock,
     TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
     required TResult orElse(),
   }) {
     if (getBloodStock != null) {
@@ -261,6 +294,7 @@ class _$GetBloodStock implements GetBloodStock {
     required TResult Function(Started value) started,
     required TResult Function(GetBloodStock value) getBloodStock,
     required TResult Function(RequestBlood value) requestBlood,
+    required TResult Function(DonateBlood value) donateBlood,
   }) {
     return getBloodStock(this);
   }
@@ -271,6 +305,7 @@ class _$GetBloodStock implements GetBloodStock {
     TResult? Function(Started value)? started,
     TResult? Function(GetBloodStock value)? getBloodStock,
     TResult? Function(RequestBlood value)? requestBlood,
+    TResult? Function(DonateBlood value)? donateBlood,
   }) {
     return getBloodStock?.call(this);
   }
@@ -281,6 +316,7 @@ class _$GetBloodStock implements GetBloodStock {
     TResult Function(Started value)? started,
     TResult Function(GetBloodStock value)? getBloodStock,
     TResult Function(RequestBlood value)? requestBlood,
+    TResult Function(DonateBlood value)? donateBlood,
     required TResult orElse(),
   }) {
     if (getBloodStock != null) {
@@ -379,6 +415,9 @@ class _$RequestBlood implements RequestBlood {
     required TResult Function() started,
     required TResult Function() getBloodStock,
     required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)
+        donateBlood,
   }) {
     return requestBlood(request, file);
   }
@@ -389,6 +428,9 @@ class _$RequestBlood implements RequestBlood {
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
     TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
   }) {
     return requestBlood?.call(request, file);
   }
@@ -399,6 +441,9 @@ class _$RequestBlood implements RequestBlood {
     TResult Function()? started,
     TResult Function()? getBloodStock,
     TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
     required TResult orElse(),
   }) {
     if (requestBlood != null) {
@@ -413,6 +458,7 @@ class _$RequestBlood implements RequestBlood {
     required TResult Function(Started value) started,
     required TResult Function(GetBloodStock value) getBloodStock,
     required TResult Function(RequestBlood value) requestBlood,
+    required TResult Function(DonateBlood value) donateBlood,
   }) {
     return requestBlood(this);
   }
@@ -423,6 +469,7 @@ class _$RequestBlood implements RequestBlood {
     TResult? Function(Started value)? started,
     TResult? Function(GetBloodStock value)? getBloodStock,
     TResult? Function(RequestBlood value)? requestBlood,
+    TResult? Function(DonateBlood value)? donateBlood,
   }) {
     return requestBlood?.call(this);
   }
@@ -433,6 +480,7 @@ class _$RequestBlood implements RequestBlood {
     TResult Function(Started value)? started,
     TResult Function(GetBloodStock value)? getBloodStock,
     TResult Function(RequestBlood value)? requestBlood,
+    TResult Function(DonateBlood value)? donateBlood,
     required TResult orElse(),
   }) {
     if (requestBlood != null) {
@@ -451,6 +499,195 @@ abstract class RequestBlood implements BloodServicesEvent {
   File get file;
   @JsonKey(ignore: true)
   _$$RequestBloodCopyWith<_$RequestBlood> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DonateBloodCopyWith<$Res> {
+  factory _$$DonateBloodCopyWith(
+          _$DonateBlood value, $Res Function(_$DonateBlood) then) =
+      __$$DonateBloodCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name, String phoneNumber, String dob, String hospitalName});
+}
+
+/// @nodoc
+class __$$DonateBloodCopyWithImpl<$Res>
+    extends _$BloodServicesEventCopyWithImpl<$Res, _$DonateBlood>
+    implements _$$DonateBloodCopyWith<$Res> {
+  __$$DonateBloodCopyWithImpl(
+      _$DonateBlood _value, $Res Function(_$DonateBlood) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? phoneNumber = null,
+    Object? dob = null,
+    Object? hospitalName = null,
+  }) {
+    return _then(_$DonateBlood(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      dob: null == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
+              as String,
+      hospitalName: null == hospitalName
+          ? _value.hospitalName
+          : hospitalName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DonateBlood implements DonateBlood {
+  const _$DonateBlood(
+      {required this.name,
+      required this.phoneNumber,
+      required this.dob,
+      required this.hospitalName});
+
+  @override
+  final String name;
+  @override
+  final String phoneNumber;
+  @override
+  final String dob;
+  @override
+  final String hospitalName;
+
+  @override
+  String toString() {
+    return 'BloodServicesEvent.donateBlood(name: $name, phoneNumber: $phoneNumber, dob: $dob, hospitalName: $hospitalName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DonateBlood &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.hospitalName, hospitalName) ||
+                other.hospitalName == hospitalName));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, phoneNumber, dob, hospitalName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DonateBloodCopyWith<_$DonateBlood> get copyWith =>
+      __$$DonateBloodCopyWithImpl<_$DonateBlood>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBloodStock,
+    required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)
+        donateBlood,
+  }) {
+    return donateBlood(name, phoneNumber, dob, hospitalName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBloodStock,
+    TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
+  }) {
+    return donateBlood?.call(name, phoneNumber, dob, hospitalName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBloodStock,
+    TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(
+            String name, String phoneNumber, String dob, String hospitalName)?
+        donateBlood,
+    required TResult orElse(),
+  }) {
+    if (donateBlood != null) {
+      return donateBlood(name, phoneNumber, dob, hospitalName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(GetBloodStock value) getBloodStock,
+    required TResult Function(RequestBlood value) requestBlood,
+    required TResult Function(DonateBlood value) donateBlood,
+  }) {
+    return donateBlood(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(GetBloodStock value)? getBloodStock,
+    TResult? Function(RequestBlood value)? requestBlood,
+    TResult? Function(DonateBlood value)? donateBlood,
+  }) {
+    return donateBlood?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(GetBloodStock value)? getBloodStock,
+    TResult Function(RequestBlood value)? requestBlood,
+    TResult Function(DonateBlood value)? donateBlood,
+    required TResult orElse(),
+  }) {
+    if (donateBlood != null) {
+      return donateBlood(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DonateBlood implements BloodServicesEvent {
+  const factory DonateBlood(
+      {required final String name,
+      required final String phoneNumber,
+      required final String dob,
+      required final String hospitalName}) = _$DonateBlood;
+
+  String get name;
+  String get phoneNumber;
+  String get dob;
+  String get hospitalName;
+  @JsonKey(ignore: true)
+  _$$DonateBloodCopyWith<_$DonateBlood> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

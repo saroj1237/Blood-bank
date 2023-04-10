@@ -7,7 +7,7 @@ import 'package:blood_bank/core/services/image_picker.dart';
 import 'package:blood_bank/core/utils/dialogs/option_dialogs.dart';
 import 'package:blood_bank/core/utils/dialogs/snackbars.dart';
 import 'package:blood_bank/core/utils/dialogs/loading_dialog.dart';
-import 'package:blood_bank/presentation/bloc/bloc/blood_services_bloc.dart';
+import 'package:blood_bank/presentation/bloc/blood_services_bloc/blood_services_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +36,7 @@ class _BloodRequestScreenState extends State<BloodRequestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Request Blood"),
+        title: const Text("REQUEST BLOOD"),
         elevation: 0,
       ),
       body: BlocListener<BloodServicesBloc, BloodServicesState>(

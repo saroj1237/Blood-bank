@@ -39,7 +39,7 @@ class BloodService {
       imageUrl: "assets/images/book_camp.png",
       label: "Book Camp",
       onPressed: (context) {
-        print("hello sir");
+        context.push(AppRoutes.bookCampRoute);
       },
     ),
   ];

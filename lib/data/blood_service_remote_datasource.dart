@@ -41,4 +41,22 @@ class BloodServiceRemoteDataSource {
       rethrow;
     }
   }
+
+  Future<bool> donateBlood(
+      String name, String phone, String dob, String hospitalName) async {
+    try {
+      final response = await Dio().post(
+        "https://www.tulionsbloodbank.org/api/donateNow/save",
+        data: {
+          'fullname': name,
+          "dob": dob,
+          'phone': phone,
+          'hospital_name': hospitalName,
+        },
+      );
+      return true;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
