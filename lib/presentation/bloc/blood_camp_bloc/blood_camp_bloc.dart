@@ -1,3 +1,4 @@
+import 'package:blood_bank/domain/models/blood/camp/camp_history_model.dart';
 import 'package:blood_bank/domain/repositories/blood_camp_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:blood_bank/domain/models/blood/camp.dart';
@@ -26,6 +27,46 @@ class BloodCampBloc extends Bloc<BloodCampEvent, BloodCampState> {
             status: BloodCampStatus.loaded,
           ));
         });
+      },
+    );
+    on<GetBloodCampHistory>(
+      (event, emit) async {
+        emit(state.copyWith(status: BloodCampStatus.loading));
+        final failureOrSuccess = await repository.getBloodCampHistory();
+        failureOrSuccess.fold(
+          (error) {
+            emit(state.copyWith(
+                status: BloodCampStatus.failure, errorMsg: error));
+          },
+          (result) {
+            return emit(state.copyWith(
+              status: BloodCampStatus.loaded,
+              campHistory: result,
+            ));
+          },
+        );
+      },
+    );
+
+    on<GetBloodBanks>(
+      (event, emit) async {
+        emit(state.copyWith(status: BloodCampStatus.loading));
+        final failureOrSuccess = await repository.getBloodBanks();
+        failureOrSuccess.fold(
+          (l) {
+            emit(state.copyWith(
+              status: BloodCampStatus.failure,
+            ));
+          },
+          (banks) {
+            emit(
+              state.copyWith(
+                status: BloodCampStatus.loaded,
+                bloodBanks: banks,
+              ),
+            );
+          },
+        );
       },
     );
   }

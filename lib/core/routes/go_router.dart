@@ -1,8 +1,11 @@
 import 'package:blood_bank/presentation/bloc/startup_bloc/startup_bloc.dart';
-import 'package:blood_bank/presentation/screens/blood/blood_donate_screen.dart';
-import 'package:blood_bank/presentation/screens/blood/blood_stock_screen.dart';
-import 'package:blood_bank/presentation/screens/blood/book_camp_screen.dart';
-import 'package:blood_bank/presentation/screens/blood/request_blood.dart';
+import 'package:blood_bank/presentation/screens/aph/aph_screen.dart';
+import 'package:blood_bank/presentation/screens/blood_camp/blood_bank_screen.dart';
+import 'package:blood_bank/presentation/screens/blood_camp/blood_camp_info_screen.dart';
+import 'package:blood_bank/presentation/screens/blood_services/blood_donate_screen.dart';
+import 'package:blood_bank/presentation/screens/blood_services/blood_stock_screen.dart';
+import 'package:blood_bank/presentation/screens/blood_camp/book_camp_screen.dart';
+import 'package:blood_bank/presentation/screens/blood_services/request_blood.dart';
 import 'package:blood_bank/presentation/screens/full_screen_loading.dart';
 import 'package:blood_bank/presentation/screens/home/home_screen.dart';
 import 'package:blood_bank/presentation/screens/login/login_screen.dart';
@@ -23,7 +26,10 @@ class AppRoutes {
   static const String bloodStockRoute = '/bloodStock';
   static const String bloodDonateRoute = '/bloodDonate';
   static const String bloodRequestRoute = '/bloodRequest';
-  static const String bookCampRoute = '/boolCamp';
+  static const String bookCampRoute = '/bookCamp';
+  static const String bloodCampRoute = '/bloodCamp';
+  static const String bloodBankRoute = '/bloodBank';
+  static const String aphRoute = '/aph/:tabIndex';
 
   GoRouter init() {
     return GoRouter(
@@ -103,6 +109,30 @@ class AppRoutes {
             builder: (context, state) {
               return const BookCampScreen();
             }),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: bloodCampRoute,
+            name: bloodCampRoute,
+            builder: (context, state) {
+              return const BloodCampInfoScreen();
+            }),
+        GoRoute(
+            // parentNavigatorKey: _rootNavigatorKey,
+            path: bloodBankRoute,
+            name: bloodBankRoute,
+            builder: (context, state) {
+              return const BloodBankScreen();
+            }),
+        GoRoute(
+          // parentNavigatorKey: _rootNavigatorKey,
+          path: aphRoute,
+          name: aphRoute,
+          builder: (context, state) {
+            return APHScreen(
+              tabIndex: int.parse(state.params["tabIndex"]??"0"),
+            );
+          },
+        ),
       ],
       errorBuilder: (context, state) {
         return Scaffold(

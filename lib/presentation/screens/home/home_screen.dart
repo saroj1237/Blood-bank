@@ -1,5 +1,6 @@
 import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/presentation/screens/home/home_tab.dart';
+import 'package:blood_bank/presentation/screens/home/profile_tab.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   List<Widget> items = [
     const HomeTab(),
-    const Text("Profile"),
+    const ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,10 @@
+import 'package:blood_bank/core/helpers/custom_scroll_behavior.dart';
 import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/domain/models/home/blood_service.dart';
 import 'package:blood_bank/presentation/widgets/custom_cached_network_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -22,178 +21,6 @@ class _HomeTabState extends State<HomeTab> {
     "https://www.thephuketnews.com/photo/listing/2016/1463739923_1-org.jpg",
   ];
 
-  List<Widget> widgetList = [
-    InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 2,
-              offset: const Offset(0, 2), // changes position of shadow
-            ),
-          ],
-        ),
-        height: 120,
-        width: 130,
-        child: Padding(
-          padding: EdgeInsets.zero,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                'assets/images/blood_stock.png',
-                height: 70,
-                width: 70,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Blood Stock',
-                style: TextStyle(),
-              )
-            ],
-          ),
-        ),
-      ),
-    ),
-    InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 2,
-              offset: const Offset(0, 2), // changes position of shadow
-            ),
-          ],
-        ),
-        height: 120,
-        width: 130,
-        child: Padding(
-          // padding: EdgeInsets.zero,
-          padding: const EdgeInsets.all(6),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Hero(
-                tag: 'request',
-                child: Image.asset(
-                  'assets/images/request.png',
-                  height: 70,
-                  width: 70,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Request Blood',
-                style: TextStyle(),
-              )
-            ],
-          ),
-        ),
-      ),
-    ),
-    InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 2,
-              offset: const Offset(0, 2), // changes position of shadow
-            ),
-          ],
-        ),
-        height: 120,
-        width: 130,
-        child: Padding(
-          padding: EdgeInsets.zero,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Hero(
-                tag: 'donate',
-                child: Image.asset(
-                  'assets/images/donate.png',
-                  height: 70,
-                  width: 70,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Donate Blood',
-                style: TextStyle(),
-              )
-            ],
-          ),
-        ),
-      ),
-    ),
-    InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 2,
-              offset: const Offset(0, 2), // changes position of shadow
-            ),
-          ],
-        ),
-        height: 120,
-        width: 130,
-        child: Padding(
-          padding: EdgeInsets.zero,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Hero(
-                tag: 'book_camp',
-                child: Image.asset(
-                  'assets/images/book_camp.png',
-                  height: 70,
-                  width: 70,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Book Camp',
-                style: TextStyle(),
-              )
-            ],
-          ),
-        ),
-      ),
-    ),
-  ];
   int initialIndex = 0;
   CarouselController controller = CarouselController();
   @override
@@ -205,6 +32,7 @@ class _HomeTabState extends State<HomeTab> {
         title: const Text("TU Lions Blood Bank"),
       ),
       body: CustomScrollView(
+        scrollBehavior: CustomScrollBehavior(),
         slivers: [
           // banner section ---------------------
           SliverToBoxAdapter(
@@ -254,7 +82,6 @@ class _HomeTabState extends State<HomeTab> {
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
-
           SliverToBoxAdapter(
             child: SizedBox(
               height: 110,
@@ -271,14 +98,14 @@ class _HomeTabState extends State<HomeTab> {
                     },
                     child: Container(
                       margin: const EdgeInsets.only(right: 10),
-                      padding: const EdgeInsets.only(bottom: 8),
+                      padding: const EdgeInsets.only(bottom: 8, top: 4),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(5),
                           border: Border.all(
                               color: AppColor.secondaryColor.withOpacity(0.1))),
                       height: 120,
-                      width: 130,
+                      width: 125,
                       child: Padding(
                         padding: EdgeInsets.zero,
                         child: Column(
@@ -288,6 +115,7 @@ class _HomeTabState extends State<HomeTab> {
                               bloodService.imageUrl,
                               height: 70,
                               width: 70,
+                              fit: BoxFit.fitHeight,
                             ),
                             const SizedBox(
                               height: 10,
@@ -315,14 +143,44 @@ class _HomeTabState extends State<HomeTab> {
               ),
             ),
           ),
-
-          SliverToBoxAdapter(
-            child: Wrap(
-              children: BloodService.bloodServices
-                  .map((e) => Image.asset(e.imageUrl))
-                  .toList(),
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            sliver: SliverGrid.builder(
+              itemCount: BloodService.otherServices.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 0.75,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              ),
+              itemBuilder: (context, index) {
+                final otherService = BloodService.otherServices[index];
+                return GestureDetector(
+                  onTap: () => otherService.onPressed!(context),
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                            color: AppColor.secondaryColor.withOpacity(0.1))),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            otherService.imageUrl,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ),
+                        Text(otherService.label),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
-          )
+          ),
         ],
       ),
     );

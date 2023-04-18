@@ -48,7 +48,6 @@ dependencies:
   syncfusion_flutter_datagrid: ^21.1.38
   nepali_date_picker: ^5.3.1
   nepali_utils: ^3.0.3
-  flutter_screenutil: ^5.7.0
   
 dev_dependencies:
   flutter_test:

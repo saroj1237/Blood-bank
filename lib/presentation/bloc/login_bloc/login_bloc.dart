@@ -19,7 +19,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           await authRepository.donorLogin(event.phoneNumber, event.donorCardId);
 
       emit(LoginSuccess(loginType: LoginType.donor));
-    } catch (e) {
+    } catch (e) { 
       emit(LoginFailure(error: e.toString()));
     }
   }
