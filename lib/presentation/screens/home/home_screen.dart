@@ -1,6 +1,6 @@
 import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/presentation/screens/home/home_tab.dart';
-import 'package:blood_bank/presentation/screens/home/profile_tab.dart';
+import 'package:blood_bank/presentation/screens/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

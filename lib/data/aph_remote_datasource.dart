@@ -1,6 +1,8 @@
 import 'package:blood_bank/domain/models/aph/aph_models.dart';
 import 'package:dio/dio.dart';
 
+//Note: APH refers Ambulance, Pharmacy, Hospital :)
+
 class APHRemoteDataSource {
   final Dio _dio;
   APHRemoteDataSource({required Dio dio}) : _dio = dio;

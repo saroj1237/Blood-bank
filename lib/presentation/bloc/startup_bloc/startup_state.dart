@@ -6,6 +6,9 @@ class StartupLoading extends StartupState {}
 
 class OnboardingState extends StartupState {}
 
-class LoggedInState extends StartupState {}
+class LoggedInState extends StartupState {
+  final User user;
+  LoggedInState({required this.user});
+}
 
 class LoggedOutState extends StartupState {}

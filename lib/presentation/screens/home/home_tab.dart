@@ -2,9 +2,9 @@ import 'package:blood_bank/core/helpers/custom_scroll_behavior.dart';
 import 'package:blood_bank/core/resources/resources.dart';
 import 'package:blood_bank/domain/models/home/blood_service.dart';
 import 'package:blood_bank/presentation/widgets/custom_cached_network_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:nepali_date_picker/nepali_date_picker.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -28,8 +28,50 @@ class _HomeTabState extends State<HomeTab> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.white,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            backgroundColor: AppColor.white,
+            child: Image.asset(AssetManager.logo),
+          ),
+        ),
         elevation: 0,
-        title: const Text("TU Lions Blood Bank"),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "TU Lions Blood Bank",
+              style: TextStyle(
+                color: AppColor.primaryColor,
+              ),
+            ),
+            Text(
+              NepaliDateTime.parse(NepaliDateTime.now().toIso8601String())
+                  .format(
+                "MMMM dd : EEE",
+                Language.nepali,
+              ),
+              style: const TextStyle(
+                color: AppColor.secondaryColor,
+                fontSize: 10,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+          ],
+        ),
+        bottom: const PreferredSize(
+          preferredSize: Size(double.infinity, 0.0),
+          child: Divider(height: 1),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.notifications,
+                color: AppColor.primaryColor,
+              ))
+        ],
       ),
       body: CustomScrollView(
         scrollBehavior: CustomScrollBehavior(),
@@ -37,7 +79,7 @@ class _HomeTabState extends State<HomeTab> {
           // banner section ---------------------
           SliverToBoxAdapter(
             child: Container(
-              margin: const EdgeInsets.only(top: 16),
+              margin: const EdgeInsets.only(top: 10),
               width: double.infinity,
               height: size.height * 0.25,
               child: CarouselSlider(

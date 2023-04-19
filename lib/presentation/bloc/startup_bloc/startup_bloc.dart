@@ -1,4 +1,5 @@
 import 'package:blood_bank/core/services/app_preferences.dart';
+import 'package:blood_bank/domain/models/auth/user.dart';
 import 'package:blood_bank/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,7 @@ class StartupBloc extends Bloc<StartupEvent, StartupState> {
       if (onBoardingViewed) {
         final loggedInUser = await appPreferences.getLoginState();
         if (loggedInUser != null) {
-          emit(LoggedInState());
+          emit(LoggedInState(user: loggedInUser));
         } else {
           emit(LoggedOutState());
         }
@@ -38,10 +39,10 @@ class StartupBloc extends Bloc<StartupEvent, StartupState> {
       },
     );
 
-    on<SetStartupStateLoginForce>(
-      (event, emit) async {
-        emit(LoggedInState());
-      },
-    );
+    // on<SetStartupStateLoginForce>(
+    //   (event, emit) async {
+    //     emit(LoggedInState());
+    //   },
+    // );
   }
 }
