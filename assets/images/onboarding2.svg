@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 128 128" version="1.0">
+  <g id="layer2">
+    <path id="path3284" stroke-linejoin="round" d="m104.86 4.3331l-4.56 4.4687 5.66 5.7812-12.66 12.438 8.31 8.5 12.69-12.438 5.66 5.781 4.56-4.468-19.66-20.063zm-16.216 18.219l-47.031 46.062 17.344 17.719 47.003-46.094-17.316-17.687zm-40.906 52.406l-10.344 10.125 1.313 1.344-32.125 30.253-1.5942 5.97 35.844-34.067 1.718 1.75 10.344-10.094-5.156-5.281z" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-width="8" fill="#c0c0c0"/>
+  </g>
+  <g id="layer1" transform="translate(183.22 -198.69)">
+    <path id="path3218" fill-rule="evenodd" fill="#c0c0c0" transform="translate(-183.22 198.69)" d="m39.366 85.817l-32.785 30.863-1.5959 5.98 36.437-34.668-2.056-2.175z"/>
+    <rect id="rect2404" stroke-linejoin="round" transform="matrix(.69985 .71429 -.71429 .69985 -183.22 198.69)" height="65.829" width="24.779" stroke="#000" stroke-linecap="round" y="-47.523" x="78.138" stroke-width="2.2563" fill="#0ff"/>
+    <rect id="rect2406" stroke-linejoin="round" transform="matrix(.69985 .71429 -.71429 .69985 -183.22 198.69)" height="23.358" width="11.897" stroke="#000" stroke-linecap="round" y="-71.088" x="84.579" stroke-width="2.2563" fill="#0ff"/>
+    <rect id="rect2408" stroke-linejoin="round" transform="matrix(.69985 .71429 -.71429 .69985 -183.22 198.69)" height="6.4108" width="28.082" stroke="#000" stroke-linecap="round" y="-71.888" x="76.486" stroke-width="2.2563" fill="#0ff"/>
+    <rect id="rect2410" stroke-linejoin="round" transform="matrix(.69985 .71429 -.71429 .69985 -183.22 198.69)" height="14.464" width="7.3671" stroke="#000" stroke-linecap="round" y="18.371" x="86.948" stroke-width="2.2563" fill="#f00"/>
+    <path id="rect3356" fill="#f00" d="m-128.32 255.91l32.265-0.12-28.065 27.85-16.31-16.08 12.11-11.65z"/>
+    <path id="path3182" stroke-linejoin="round" d="m65.953 78.746c-8.167-8.335-8.021-8.186-8.021-8.186" fill-rule="evenodd" transform="translate(-183.22 198.69)" stroke="#000" stroke-linecap="round" stroke-width="2.2563" fill="#0ff"/>
+    <path id="path3200" stroke-linejoin="round" d="m74.549 70.324c-8.167-8.335-8.021-8.186-8.021-8.186" fill-rule="evenodd" transform="translate(-183.22 198.69)" stroke="#000" stroke-linecap="round" stroke-width="2.2563" fill="#0ff"/>
+    <path id="path3202" stroke-linejoin="round" d="m83.144 61.902l-8.02-8.186" fill-rule="evenodd" transform="translate(-183.22 198.69)" stroke="#000" stroke-linecap="round" stroke-width="2.2563" fill="#0ff"/>
+    <path id="path3204" stroke-linejoin="round" d="m91.74 53.48c-8.167-8.335-8.021-8.186-8.021-8.186" fill-rule="evenodd" transform="translate(-183.22 198.69)" stroke="#000" stroke-linecap="round" stroke-width="2.2563" fill="#0ff"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Syringe icon</dc:title>
+        <dc:date>2009-04-02T20:03:17</dc:date>
+        <dc:description>clip art, clipart, contour, contour, health, health, hospital, hospital, icon, icon, image, injection, injection, media, medical, medical, png, public domain, svg, syringe, syringe, </dc:description>
+        <dc:source>http://openclipart.org/detail/23811/syringe-icon-by-pitr-23811</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>pitr</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>contour</rdf:li>
+            <rdf:li>health</rdf:li>
+            <rdf:li>hospital</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>injection</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>medical</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>svg</rdf:li>
+            <rdf:li>syringe</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
