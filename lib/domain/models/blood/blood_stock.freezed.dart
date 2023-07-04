@@ -160,7 +160,7 @@ abstract class _BloodStock implements BloodStock {
 }
 
 RequestBloodReq _$RequestBloodReqFromJson(Map<String, dynamic> json) {
-  return _RequestBlood.fromJson(json);
+  return _RequestBloodReq.fromJson(json);
 }
 
 /// @nodoc
@@ -354,11 +354,11 @@ class _$RequestBloodReqCopyWithImpl<$Res, $Val extends RequestBloodReq>
 }
 
 /// @nodoc
-abstract class _$$_RequestBloodCopyWith<$Res>
+abstract class _$$_RequestBloodReqCopyWith<$Res>
     implements $RequestBloodReqCopyWith<$Res> {
-  factory _$$_RequestBloodCopyWith(
-          _$_RequestBlood value, $Res Function(_$_RequestBlood) then) =
-      __$$_RequestBloodCopyWithImpl<$Res>;
+  factory _$$_RequestBloodReqCopyWith(
+          _$_RequestBloodReq value, $Res Function(_$_RequestBloodReq) then) =
+      __$$_RequestBloodReqCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -386,11 +386,11 @@ abstract class _$$_RequestBloodCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RequestBloodCopyWithImpl<$Res>
-    extends _$RequestBloodReqCopyWithImpl<$Res, _$_RequestBlood>
-    implements _$$_RequestBloodCopyWith<$Res> {
-  __$$_RequestBloodCopyWithImpl(
-      _$_RequestBlood _value, $Res Function(_$_RequestBlood) _then)
+class __$$_RequestBloodReqCopyWithImpl<$Res>
+    extends _$RequestBloodReqCopyWithImpl<$Res, _$_RequestBloodReq>
+    implements _$$_RequestBloodReqCopyWith<$Res> {
+  __$$_RequestBloodReqCopyWithImpl(
+      _$_RequestBloodReq _value, $Res Function(_$_RequestBloodReq) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -418,7 +418,7 @@ class __$$_RequestBloodCopyWithImpl<$Res>
     Object? requestedpbsc = null,
     Object? requestedccp = null,
   }) {
-    return _then(_$_RequestBlood(
+    return _then(_$_RequestBloodReq(
       bloodGroup: null == bloodGroup
           ? _value.bloodGroup
           : bloodGroup // ignore: cast_nullable_to_non_nullable
@@ -509,8 +509,8 @@ class __$$_RequestBloodCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestBlood implements _RequestBlood {
-  const _$_RequestBlood(
+class _$_RequestBloodReq implements _RequestBloodReq {
+  const _$_RequestBloodReq(
       {required this.bloodGroup,
       @JsonKey(name: "patienttitle") this.patientTitle = "Mr.",
       @JsonKey(name: "patientname") required this.patientName,
@@ -533,8 +533,8 @@ class _$_RequestBlood implements _RequestBlood {
       this.requestedpbsc = false,
       this.requestedccp = false});
 
-  factory _$_RequestBlood.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestBloodFromJson(json);
+  factory _$_RequestBloodReq.fromJson(Map<String, dynamic> json) =>
+      _$$_RequestBloodReqFromJson(json);
 
   @override
   final String bloodGroup;
@@ -606,7 +606,7 @@ class _$_RequestBlood implements _RequestBlood {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestBlood &&
+            other is _$_RequestBloodReq &&
             (identical(other.bloodGroup, bloodGroup) ||
                 other.bloodGroup == bloodGroup) &&
             (identical(other.patientTitle, patientTitle) ||
@@ -679,19 +679,19 @@ class _$_RequestBlood implements _RequestBlood {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestBloodCopyWith<_$_RequestBlood> get copyWith =>
-      __$$_RequestBloodCopyWithImpl<_$_RequestBlood>(this, _$identity);
+  _$$_RequestBloodReqCopyWith<_$_RequestBloodReq> get copyWith =>
+      __$$_RequestBloodReqCopyWithImpl<_$_RequestBloodReq>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestBloodToJson(
+    return _$$_RequestBloodReqToJson(
       this,
     );
   }
 }
 
-abstract class _RequestBlood implements RequestBloodReq {
-  const factory _RequestBlood(
+abstract class _RequestBloodReq implements RequestBloodReq {
+  const factory _RequestBloodReq(
       {required final String bloodGroup,
       @JsonKey(name: "patienttitle") final String patientTitle,
       @JsonKey(name: "patientname") required final String patientName,
@@ -712,10 +712,10 @@ abstract class _RequestBlood implements RequestBloodReq {
       final bool requestedplatelets,
       final bool requestedgcytes,
       final bool requestedpbsc,
-      final bool requestedccp}) = _$_RequestBlood;
+      final bool requestedccp}) = _$_RequestBloodReq;
 
-  factory _RequestBlood.fromJson(Map<String, dynamic> json) =
-      _$_RequestBlood.fromJson;
+  factory _RequestBloodReq.fromJson(Map<String, dynamic> json) =
+      _$_RequestBloodReq.fromJson;
 
   @override
   String get bloodGroup;
@@ -767,6 +767,393 @@ abstract class _RequestBlood implements RequestBloodReq {
   bool get requestedccp;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestBloodCopyWith<_$_RequestBlood> get copyWith =>
+  _$$_RequestBloodReqCopyWith<_$_RequestBloodReq> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+BloodRequest _$BloodRequestFromJson(Map<String, dynamic> json) {
+  return _BloodRequest.fromJson(json);
+}
+
+/// @nodoc
+mixin _$BloodRequest {
+  @JsonKey(name: "patient_name")
+  String get patientName => throw _privateConstructorUsedError;
+  @JsonKey(name: "patient_bloodgroup")
+  String get patientBloodGroup => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
+  String get receptorName => throw _privateConstructorUsedError;
+  @JsonKey(name: "admitted_hospital")
+  String get hospitalName => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get subject => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
+  @JsonKey(name: 'need_freshblood')
+  bool get needFreshBlood => throw _privateConstructorUsedError;
+  @JsonKey(name: "blood_qty")
+  String get bloodQuantity => throw _privateConstructorUsedError;
+  @JsonKey(name: "image", ignore: true)
+  String? get imagePath => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $BloodRequestCopyWith<BloodRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BloodRequestCopyWith<$Res> {
+  factory $BloodRequestCopyWith(
+          BloodRequest value, $Res Function(BloodRequest) then) =
+      _$BloodRequestCopyWithImpl<$Res, BloodRequest>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "patient_name") String patientName,
+      @JsonKey(name: "patient_bloodgroup") String patientBloodGroup,
+      @JsonKey(name: "name") String receptorName,
+      @JsonKey(name: "admitted_hospital") String hospitalName,
+      String email,
+      String subject,
+      String message,
+      String phone,
+      @JsonKey(name: 'need_freshblood') bool needFreshBlood,
+      @JsonKey(name: "blood_qty") String bloodQuantity,
+      @JsonKey(name: "image", ignore: true) String? imagePath});
+}
+
+/// @nodoc
+class _$BloodRequestCopyWithImpl<$Res, $Val extends BloodRequest>
+    implements $BloodRequestCopyWith<$Res> {
+  _$BloodRequestCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? patientName = null,
+    Object? patientBloodGroup = null,
+    Object? receptorName = null,
+    Object? hospitalName = null,
+    Object? email = null,
+    Object? subject = null,
+    Object? message = null,
+    Object? phone = null,
+    Object? needFreshBlood = null,
+    Object? bloodQuantity = null,
+    Object? imagePath = freezed,
+  }) {
+    return _then(_value.copyWith(
+      patientName: null == patientName
+          ? _value.patientName
+          : patientName // ignore: cast_nullable_to_non_nullable
+              as String,
+      patientBloodGroup: null == patientBloodGroup
+          ? _value.patientBloodGroup
+          : patientBloodGroup // ignore: cast_nullable_to_non_nullable
+              as String,
+      receptorName: null == receptorName
+          ? _value.receptorName
+          : receptorName // ignore: cast_nullable_to_non_nullable
+              as String,
+      hospitalName: null == hospitalName
+          ? _value.hospitalName
+          : hospitalName // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      needFreshBlood: null == needFreshBlood
+          ? _value.needFreshBlood
+          : needFreshBlood // ignore: cast_nullable_to_non_nullable
+              as bool,
+      bloodQuantity: null == bloodQuantity
+          ? _value.bloodQuantity
+          : bloodQuantity // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: freezed == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_BloodRequestCopyWith<$Res>
+    implements $BloodRequestCopyWith<$Res> {
+  factory _$$_BloodRequestCopyWith(
+          _$_BloodRequest value, $Res Function(_$_BloodRequest) then) =
+      __$$_BloodRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "patient_name") String patientName,
+      @JsonKey(name: "patient_bloodgroup") String patientBloodGroup,
+      @JsonKey(name: "name") String receptorName,
+      @JsonKey(name: "admitted_hospital") String hospitalName,
+      String email,
+      String subject,
+      String message,
+      String phone,
+      @JsonKey(name: 'need_freshblood') bool needFreshBlood,
+      @JsonKey(name: "blood_qty") String bloodQuantity,
+      @JsonKey(name: "image", ignore: true) String? imagePath});
+}
+
+/// @nodoc
+class __$$_BloodRequestCopyWithImpl<$Res>
+    extends _$BloodRequestCopyWithImpl<$Res, _$_BloodRequest>
+    implements _$$_BloodRequestCopyWith<$Res> {
+  __$$_BloodRequestCopyWithImpl(
+      _$_BloodRequest _value, $Res Function(_$_BloodRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? patientName = null,
+    Object? patientBloodGroup = null,
+    Object? receptorName = null,
+    Object? hospitalName = null,
+    Object? email = null,
+    Object? subject = null,
+    Object? message = null,
+    Object? phone = null,
+    Object? needFreshBlood = null,
+    Object? bloodQuantity = null,
+    Object? imagePath = freezed,
+  }) {
+    return _then(_$_BloodRequest(
+      patientName: null == patientName
+          ? _value.patientName
+          : patientName // ignore: cast_nullable_to_non_nullable
+              as String,
+      patientBloodGroup: null == patientBloodGroup
+          ? _value.patientBloodGroup
+          : patientBloodGroup // ignore: cast_nullable_to_non_nullable
+              as String,
+      receptorName: null == receptorName
+          ? _value.receptorName
+          : receptorName // ignore: cast_nullable_to_non_nullable
+              as String,
+      hospitalName: null == hospitalName
+          ? _value.hospitalName
+          : hospitalName // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      needFreshBlood: null == needFreshBlood
+          ? _value.needFreshBlood
+          : needFreshBlood // ignore: cast_nullable_to_non_nullable
+              as bool,
+      bloodQuantity: null == bloodQuantity
+          ? _value.bloodQuantity
+          : bloodQuantity // ignore: cast_nullable_to_non_nullable
+              as String,
+      imagePath: freezed == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_BloodRequest implements _BloodRequest {
+  const _$_BloodRequest(
+      {@JsonKey(name: "patient_name") required this.patientName,
+      @JsonKey(name: "patient_bloodgroup") required this.patientBloodGroup,
+      @JsonKey(name: "name") required this.receptorName,
+      @JsonKey(name: "admitted_hospital") required this.hospitalName,
+      required this.email,
+      required this.subject,
+      required this.message,
+      required this.phone,
+      @JsonKey(name: 'need_freshblood') required this.needFreshBlood,
+      @JsonKey(name: "blood_qty") required this.bloodQuantity,
+      @JsonKey(name: "image", ignore: true) this.imagePath});
+
+  factory _$_BloodRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_BloodRequestFromJson(json);
+
+  @override
+  @JsonKey(name: "patient_name")
+  final String patientName;
+  @override
+  @JsonKey(name: "patient_bloodgroup")
+  final String patientBloodGroup;
+  @override
+  @JsonKey(name: "name")
+  final String receptorName;
+  @override
+  @JsonKey(name: "admitted_hospital")
+  final String hospitalName;
+  @override
+  final String email;
+  @override
+  final String subject;
+  @override
+  final String message;
+  @override
+  final String phone;
+  @override
+  @JsonKey(name: 'need_freshblood')
+  final bool needFreshBlood;
+  @override
+  @JsonKey(name: "blood_qty")
+  final String bloodQuantity;
+  @override
+  @JsonKey(name: "image", ignore: true)
+  final String? imagePath;
+
+  @override
+  String toString() {
+    return 'BloodRequest(patientName: $patientName, patientBloodGroup: $patientBloodGroup, receptorName: $receptorName, hospitalName: $hospitalName, email: $email, subject: $subject, message: $message, phone: $phone, needFreshBlood: $needFreshBlood, bloodQuantity: $bloodQuantity, imagePath: $imagePath)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BloodRequest &&
+            (identical(other.patientName, patientName) ||
+                other.patientName == patientName) &&
+            (identical(other.patientBloodGroup, patientBloodGroup) ||
+                other.patientBloodGroup == patientBloodGroup) &&
+            (identical(other.receptorName, receptorName) ||
+                other.receptorName == receptorName) &&
+            (identical(other.hospitalName, hospitalName) ||
+                other.hospitalName == hospitalName) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.needFreshBlood, needFreshBlood) ||
+                other.needFreshBlood == needFreshBlood) &&
+            (identical(other.bloodQuantity, bloodQuantity) ||
+                other.bloodQuantity == bloodQuantity) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      patientName,
+      patientBloodGroup,
+      receptorName,
+      hospitalName,
+      email,
+      subject,
+      message,
+      phone,
+      needFreshBlood,
+      bloodQuantity,
+      imagePath);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BloodRequestCopyWith<_$_BloodRequest> get copyWith =>
+      __$$_BloodRequestCopyWithImpl<_$_BloodRequest>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BloodRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class _BloodRequest implements BloodRequest {
+  const factory _BloodRequest(
+      {@JsonKey(name: "patient_name")
+          required final String patientName,
+      @JsonKey(name: "patient_bloodgroup")
+          required final String patientBloodGroup,
+      @JsonKey(name: "name")
+          required final String receptorName,
+      @JsonKey(name: "admitted_hospital")
+          required final String hospitalName,
+      required final String email,
+      required final String subject,
+      required final String message,
+      required final String phone,
+      @JsonKey(name: 'need_freshblood')
+          required final bool needFreshBlood,
+      @JsonKey(name: "blood_qty")
+          required final String bloodQuantity,
+      @JsonKey(name: "image", ignore: true)
+          final String? imagePath}) = _$_BloodRequest;
+
+  factory _BloodRequest.fromJson(Map<String, dynamic> json) =
+      _$_BloodRequest.fromJson;
+
+  @override
+  @JsonKey(name: "patient_name")
+  String get patientName;
+  @override
+  @JsonKey(name: "patient_bloodgroup")
+  String get patientBloodGroup;
+  @override
+  @JsonKey(name: "name")
+  String get receptorName;
+  @override
+  @JsonKey(name: "admitted_hospital")
+  String get hospitalName;
+  @override
+  String get email;
+  @override
+  String get subject;
+  @override
+  String get message;
+  @override
+  String get phone;
+  @override
+  @JsonKey(name: 'need_freshblood')
+  bool get needFreshBlood;
+  @override
+  @JsonKey(name: "blood_qty")
+  String get bloodQuantity;
+  @override
+  @JsonKey(name: "image", ignore: true)
+  String? get imagePath;
+  @override
+  @JsonKey(ignore: true)
+  _$$_BloodRequestCopyWith<_$_BloodRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }

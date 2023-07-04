@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:blood_bank/domain/models/blood/blood_stock.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class BloodServiceRemoteDataSource {
   final Dio _dio;
@@ -19,22 +20,20 @@ class BloodServiceRemoteDataSource {
     }
   }
 
-  Future<bool> requestBlood(RequestBloodReq request, File file) async {
+  Future<bool> requestBlood(BloodRequest request) async {
     try {
       var data = request.toJson();
-      data['img'] = {
-        "image": await MultipartFile.fromFile(file.path),
-        "type": "image/jpg"
-      };
+      data['image'] = await MultipartFile.fromFile(request.imagePath!);
+
       var formData = FormData.fromMap(data);
-      print(data);
+      debugPrint(data.toString());
       final response =
-          await _dio.post("https://halfdigitsdev.com/Mobile/RequestBlood",
+          await _dio.post("https://cms.onvirotech.com/api/v1/submit-enquiry",
               data: formData,
               options: Options(
                 contentType: 'multipart/form-data',
               ));
-      print(response);
+      debugPrint(response.toString());
 
       return true;
     } catch (e) {

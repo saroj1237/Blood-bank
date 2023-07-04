@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:blood_bank/data/blood_service_remote_datasource.dart';
 import 'package:blood_bank/domain/models/blood/blood_stock.dart';
 import 'package:dartz/dartz.dart';
@@ -11,15 +9,15 @@ class BloodServicesRepository {
 
   Future<Either<String, Map<String, dynamic>>> getBloodStock() async {
     try {
-      return  Right(await remoteDataSource.getBloodStock());
+      return Right(await remoteDataSource.getBloodStock());
     } catch (e) {
       return Left(e.toString());
     }
   }
 
-  Future<bool> requestBlood(RequestBloodReq request, File file) async {
+  Future<bool> requestBlood(BloodRequest request) async {
     try {
-      return await remoteDataSource.requestBlood(request, file);
+      return await remoteDataSource.requestBlood(request);
     } catch (e) {
       rethrow;
     }

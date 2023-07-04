@@ -20,7 +20,7 @@ mixin _$BloodServicesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBloodStock,
-    required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(BloodRequest request) requestBlood,
     required TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)
         donateBlood,
@@ -30,7 +30,7 @@ mixin _$BloodServicesEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
-    TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(BloodRequest request)? requestBlood,
     TResult? Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -40,7 +40,7 @@ mixin _$BloodServicesEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBloodStock,
-    TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(BloodRequest request)? requestBlood,
     TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -130,7 +130,7 @@ class _$Started implements Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBloodStock,
-    required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(BloodRequest request) requestBlood,
     required TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)
         donateBlood,
@@ -143,7 +143,7 @@ class _$Started implements Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
-    TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(BloodRequest request)? requestBlood,
     TResult? Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -156,7 +156,7 @@ class _$Started implements Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBloodStock,
-    TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(BloodRequest request)? requestBlood,
     TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -250,7 +250,7 @@ class _$GetBloodStock implements GetBloodStock {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBloodStock,
-    required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(BloodRequest request) requestBlood,
     required TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)
         donateBlood,
@@ -263,7 +263,7 @@ class _$GetBloodStock implements GetBloodStock {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
-    TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(BloodRequest request)? requestBlood,
     TResult? Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -276,7 +276,7 @@ class _$GetBloodStock implements GetBloodStock {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBloodStock,
-    TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(BloodRequest request)? requestBlood,
     TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -336,9 +336,9 @@ abstract class _$$RequestBloodCopyWith<$Res> {
           _$RequestBlood value, $Res Function(_$RequestBlood) then) =
       __$$RequestBloodCopyWithImpl<$Res>;
   @useResult
-  $Res call({RequestBloodReq request, File file});
+  $Res call({BloodRequest request});
 
-  $RequestBloodReqCopyWith<$Res> get request;
+  $BloodRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
@@ -353,24 +353,19 @@ class __$$RequestBloodCopyWithImpl<$Res>
   @override
   $Res call({
     Object? request = null,
-    Object? file = null,
   }) {
     return _then(_$RequestBlood(
       request: null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
-              as RequestBloodReq,
-      file: null == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as File,
+              as BloodRequest,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RequestBloodReqCopyWith<$Res> get request {
-    return $RequestBloodReqCopyWith<$Res>(_value.request, (value) {
+  $BloodRequestCopyWith<$Res> get request {
+    return $BloodRequestCopyWith<$Res>(_value.request, (value) {
       return _then(_value.copyWith(request: value));
     });
   }
@@ -379,16 +374,14 @@ class __$$RequestBloodCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RequestBlood implements RequestBlood {
-  const _$RequestBlood({required this.request, required this.file});
+  const _$RequestBlood({required this.request});
 
   @override
-  final RequestBloodReq request;
-  @override
-  final File file;
+  final BloodRequest request;
 
   @override
   String toString() {
-    return 'BloodServicesEvent.requestBlood(request: $request, file: $file)';
+    return 'BloodServicesEvent.requestBlood(request: $request)';
   }
 
   @override
@@ -396,12 +389,11 @@ class _$RequestBlood implements RequestBlood {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RequestBlood &&
-            (identical(other.request, request) || other.request == request) &&
-            (identical(other.file, file) || other.file == file));
+            (identical(other.request, request) || other.request == request));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, request, file);
+  int get hashCode => Object.hash(runtimeType, request);
 
   @JsonKey(ignore: true)
   @override
@@ -414,12 +406,12 @@ class _$RequestBlood implements RequestBlood {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBloodStock,
-    required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(BloodRequest request) requestBlood,
     required TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)
         donateBlood,
   }) {
-    return requestBlood(request, file);
+    return requestBlood(request);
   }
 
   @override
@@ -427,12 +419,12 @@ class _$RequestBlood implements RequestBlood {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
-    TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(BloodRequest request)? requestBlood,
     TResult? Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
   }) {
-    return requestBlood?.call(request, file);
+    return requestBlood?.call(request);
   }
 
   @override
@@ -440,14 +432,14 @@ class _$RequestBlood implements RequestBlood {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBloodStock,
-    TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(BloodRequest request)? requestBlood,
     TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
     required TResult orElse(),
   }) {
     if (requestBlood != null) {
-      return requestBlood(request, file);
+      return requestBlood(request);
     }
     return orElse();
   }
@@ -491,12 +483,10 @@ class _$RequestBlood implements RequestBlood {
 }
 
 abstract class RequestBlood implements BloodServicesEvent {
-  const factory RequestBlood(
-      {required final RequestBloodReq request,
-      required final File file}) = _$RequestBlood;
+  const factory RequestBlood({required final BloodRequest request}) =
+      _$RequestBlood;
 
-  RequestBloodReq get request;
-  File get file;
+  BloodRequest get request;
   @JsonKey(ignore: true)
   _$$RequestBloodCopyWith<_$RequestBlood> get copyWith =>
       throw _privateConstructorUsedError;
@@ -599,7 +589,7 @@ class _$DonateBlood implements DonateBlood {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBloodStock,
-    required TResult Function(RequestBloodReq request, File file) requestBlood,
+    required TResult Function(BloodRequest request) requestBlood,
     required TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)
         donateBlood,
@@ -612,7 +602,7 @@ class _$DonateBlood implements DonateBlood {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBloodStock,
-    TResult? Function(RequestBloodReq request, File file)? requestBlood,
+    TResult? Function(BloodRequest request)? requestBlood,
     TResult? Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,
@@ -625,7 +615,7 @@ class _$DonateBlood implements DonateBlood {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBloodStock,
-    TResult Function(RequestBloodReq request, File file)? requestBlood,
+    TResult Function(BloodRequest request)? requestBlood,
     TResult Function(
             String name, String phoneNumber, String dob, String hospitalName)?
         donateBlood,

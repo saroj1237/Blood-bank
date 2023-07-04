@@ -36,6 +36,7 @@ class AppRoutes {
   GoRouter init() {
     return GoRouter(
       initialLocation: initialRoute(),
+      // initialLocation: bloodRequestRoute,
       // navigatorKey: _rootNavigatorKey,
       routes: [
         // ShellRoute(
@@ -97,15 +98,15 @@ class AppRoutes {
           builder: (context, state) {
             return const BloodDonateScreen();
           },
-          redirect: (context, state) {
-            if (startupBloc.state is! LoggedInState) {
-              print("Not loggedin");
-              return loginRoute;
-            } else {
-              print("logged in");
-              return null;
-            }
-          },
+          // redirect: (context, state) {
+          //   if (startupBloc.state is! LoggedInState) {
+          //     print("Not loggedin");
+          //     return loginRoute;
+          //   } else {
+          //     print("logged in");
+          //     return null;
+          //   }
+          // },
         ),
         GoRoute(
           // parentNavigatorKey: _rootNavigatorKey,
@@ -114,15 +115,15 @@ class AppRoutes {
           builder: (context, state) {
             return const BloodRequestScreen();
           },
-          redirect: (BuildContext context, GoRouterState state) {
-            if (startupBloc.state is! LoggedInState) {
-              print("Not loggedin");
-              return loginRoute;
-            } else {
-              print("logged in");
-              return null;
-            }
-          },
+          // redirect: (BuildContext context, GoRouterState state) {
+          //   if (startupBloc.state is! LoggedInState) {
+          //     print("Not loggedin");
+          //     return loginRoute;
+          //   } else {
+          //     print("logged in");
+          //     return null;
+          //   }
+          // },
         ),
         GoRoute(
           // parentNavigatorKey: _rootNavigatorKey,

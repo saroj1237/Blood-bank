@@ -16,8 +16,8 @@ Map<String, dynamic> _$$_BloodStockToJson(_$_BloodStock instance) =>
       'bloodGroup': instance.bloodGroup,
     };
 
-_$_RequestBlood _$$_RequestBloodFromJson(Map<String, dynamic> json) =>
-    _$_RequestBlood(
+_$_RequestBloodReq _$$_RequestBloodReqFromJson(Map<String, dynamic> json) =>
+    _$_RequestBloodReq(
       bloodGroup: json['bloodGroup'] as String,
       patientTitle: json['patienttitle'] as String? ?? "Mr.",
       patientName: json['patientname'] as String,
@@ -41,7 +41,7 @@ _$_RequestBlood _$$_RequestBloodFromJson(Map<String, dynamic> json) =>
       requestedccp: json['requestedccp'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_RequestBloodToJson(_$_RequestBlood instance) =>
+Map<String, dynamic> _$$_RequestBloodReqToJson(_$_RequestBloodReq instance) =>
     <String, dynamic>{
       'bloodGroup': instance.bloodGroup,
       'patienttitle': instance.patientTitle,
@@ -64,4 +64,32 @@ Map<String, dynamic> _$$_RequestBloodToJson(_$_RequestBlood instance) =>
       'requestedgcytes': instance.requestedgcytes,
       'requestedpbsc': instance.requestedpbsc,
       'requestedccp': instance.requestedccp,
+    };
+
+_$_BloodRequest _$$_BloodRequestFromJson(Map<String, dynamic> json) =>
+    _$_BloodRequest(
+      patientName: json['patient_name'] as String,
+      patientBloodGroup: json['patient_bloodgroup'] as String,
+      receptorName: json['name'] as String,
+      hospitalName: json['admitted_hospital'] as String,
+      email: json['email'] as String,
+      subject: json['subject'] as String,
+      message: json['message'] as String,
+      phone: json['phone'] as String,
+      needFreshBlood: json['need_freshblood'] as bool,
+      bloodQuantity: json['blood_qty'] as String,
+    );
+
+Map<String, dynamic> _$$_BloodRequestToJson(_$_BloodRequest instance) =>
+    <String, dynamic>{
+      'patient_name': instance.patientName,
+      'patient_bloodgroup': instance.patientBloodGroup,
+      'name': instance.receptorName,
+      'admitted_hospital': instance.hospitalName,
+      'email': instance.email,
+      'subject': instance.subject,
+      'message': instance.message,
+      'phone': instance.phone,
+      'need_freshblood': instance.needFreshBlood,
+      'blood_qty': instance.bloodQuantity,
     };

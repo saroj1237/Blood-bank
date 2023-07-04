@@ -5,7 +5,7 @@ class BloodServicesEvent with _$BloodServicesEvent {
   const factory BloodServicesEvent.started() = Started;
   const factory BloodServicesEvent.getBloodStock() = GetBloodStock;
   const factory BloodServicesEvent.requestBlood(
-      {required RequestBloodReq request, required File file}) = RequestBlood;
+      {required BloodRequest request}) = RequestBlood;
 
   const factory BloodServicesEvent.donateBlood({
     required String name,
