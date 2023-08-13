@@ -26,7 +26,7 @@ class AuthRepository {
         // final error = e;
         if (e.type == DioErrorType.badResponse) {
           if (e.response?.statusCode == 404) {
-            return const Left("The Email number is already been taken.");
+            return const Left("The Email or phone number is already been taken.");
           }
         } else {
           return const Left("Something went wrong");
