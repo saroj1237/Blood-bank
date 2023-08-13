@@ -55,11 +55,13 @@ class _BloodRequestScreenState extends State<BloodRequestScreen> {
           } else if (state.status == BloodServiceStatus.loaded) {
             hideEasyLoading();
             showInfoDialog(context,
+                dialogType: DialogType.success,
                 body:
                     "Blood request form is submitted successfully. We will contact you shortly.");
           } else if (state.status == BloodServiceStatus.error) {
             hideEasyLoading();
             showInfoDialog(context,
+                dialogType: DialogType.failure,
                 body:
                     "Error occurred submitting your form. Please try again later.");
           }
@@ -156,7 +158,7 @@ class _BloodRequestScreenState extends State<BloodRequestScreen> {
                                                     context);
                                             if (bloodGroup != null) {
                                               _bloodGroupController.text =
-                                                  bloodGroup;
+                                                  bloodGroup['name'];
                                             }
                                           },
                                           decoration: InputDecoration(

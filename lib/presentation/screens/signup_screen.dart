@@ -32,6 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  int bloodGroupID = 0;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -198,7 +199,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       final selectedBloodGroup =
                           await showBloodGroupDialog(context);
                       if (selectedBloodGroup != null) {
-                        _bloodController.text = selectedBloodGroup;
+                        _bloodController.text = selectedBloodGroup['name'];
+                        bloodGroupID = selectedBloodGroup['id'];
                       }
                     },
                     decoration: InputDecoration(
@@ -354,7 +356,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   name: _nameController.text,
                                   phone: _phoneController.text,
                                   email: _emailController.text,
-                                  bloodGroup: _bloodController.text,
+                                  bloodGroup: bloodGroupID.toString(),
                                   gender: _genderController.text,
                                   age: int.parse(_ageController.text),
                                   address: _addressController.text,

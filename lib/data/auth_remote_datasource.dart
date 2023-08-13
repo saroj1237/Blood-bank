@@ -2,7 +2,6 @@ import 'package:blood_bank/core/network/api_url.dart';
 import 'package:blood_bank/domain/models/auth/register_model.dart';
 import 'package:blood_bank/domain/models/auth/user.dart';
 import 'package:dio/dio.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 class AuthRemoteDataSource {
   final Dio _dio;
@@ -11,18 +10,18 @@ class AuthRemoteDataSource {
   Future<bool> donorRegister(DonorRegisterRequest registerRequest) async {
     try {
       await _dio.post(
-        'https://www.tulionsbloodbank.org/api/user/register',
+        'https://admin.tulionsbloodbank.org/api/v1/add/new-user',
         data: {
-          "name": registerRequest.name,
-          "email": registerRequest.email,
-          "age": registerRequest.age,
-          "phone": registerRequest.phone,
-          "gender": registerRequest.phone,
-          "blood_group": registerRequest.bloodGroup,
-          "last_donation_date": registerRequest.lastDonatedDate,
-          "address": registerRequest.address,
+          "name": registerRequest.name, //
+          "email": registerRequest.email, //
+          "age": registerRequest.age.toString(),
+          "phone": registerRequest.phone, //
+          "gender": registerRequest.gender.toLowerCase(),
+          "blood_group": int.parse(registerRequest.bloodGroup),
+          // "last_donation_date": registerRequest.lastDonatedDate,
+          "address": registerRequest.address, //
+          "role": "Donor" //
         },
-        
       );
       return true;
     } catch (e) {
@@ -57,7 +56,7 @@ class AuthRemoteDataSource {
       var data = response.data["data"] as Map<String, dynamic>;
 
       return OrganizationUserModel.fromJson(data);
-    } catch (e) { 
+    } catch (e) {
       rethrow;
     }
   }

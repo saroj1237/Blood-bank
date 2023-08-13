@@ -27,12 +27,12 @@ class BloodServiceRemoteDataSource {
 
       var formData = FormData.fromMap(data);
       debugPrint(data.toString());
-      final response =
-          await _dio.post("https://cms.onvirotech.com/api/v1/submit-enquiry",
-              data: formData,
-              options: Options(
-                contentType: 'multipart/form-data',
-              ));
+      final response = await _dio.post(
+          "https://admin.tulionsbloodbank.org/api/v1/submit-enquiry",
+          data: formData,
+          options: Options(
+            contentType: 'multipart/form-data',
+          ));
       debugPrint(response.toString());
 
       return true;

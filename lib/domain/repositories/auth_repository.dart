@@ -25,14 +25,16 @@ class AuthRepository {
       if (e is DioError) {
         // final error = e;
         if (e.type == DioErrorType.badResponse) {
-          if (e.response?.statusCode == 401) {
-            return const Left("The phone number is already taken.");
+          if (e.response?.statusCode == 404) {
+            return const Left("The Email number is already been taken.");
           }
         } else {
           return const Left("Something went wrong");
         }
       }
-      return Left(e.toString());
+      //TODO: handle error. look network_exception.dart file,
+      // return Left(e.toString());
+      return const Left("Something went wrong");
     }
   }
 
